@@ -29,7 +29,7 @@ class Orchestrator:
         self.tokenizer = GPT2Tokenizer.from_pretrained(model_name)
         self.tokenizer.pad_token = self.tokenizer.eos_token
         
-        # Сохраняем "чистые" веса для восстановления
+        # Сохраняем "чистые" веса для восстановления (инкрементально)
         self._base_weights_backup = {}
         self._active_seed = None
     
@@ -42,18 +42,11 @@ class Orchestrator:
     ) -> None:
         """
         Внедряет семя в модель и выполняет целевой прогрев.
-        
-        Args:
-            seed_data: Словарь с весами мастеров (из registry.load_seed).
-            warmup_epochs: Сколько эпох прогревать (обновляя только мастеров).
-            dataloader: Нужен для warmup. Если None - пропускает прогрев.
-            lr: Learning rate для warmup.
         """
-        # Сохраняем базовые веса, если еще не сохранены
-        if not self._base_weights_backup:
-            self._backup_base_weights(seed_data)
+        # Инкрементальное сохранение базовых весов (только для новых мастеров)
+        self._backup_base_weights_incremental(seed_data)
         
-        # Если есть активное семя - сначала eject
+        # Если есть активное семя - сначала делаем eject
         if self._active_seed is not None:
             self.eject_seed()
         
@@ -78,42 +71,47 @@ class Orchestrator:
     
     def eject_seed(self) -> None:
         """
-        Деструктивное извлечение: заменяет веса мастеров на шум.
-        Возвращает модель в "чистое" состояние.
+        Извлечение: возвращает оригинальные базовые веса на место мастеров.
         """
         if self._active_seed is None:
             print("  Нода уже чиста, нечего извлекать.")
             return
         
-        print("  Eject: замена якорей на шум...")
+        print("  Eject: восстановление базовых весов ноды...")
         for layer_idx, layer_data in self._active_seed['layers'].items():
             layer_idx = int(layer_idx)
             m_list = layer_data['masters']
             layer = self.model.transformer.h[layer_idx].mlp
             
             for m_idx in m_list:
-                # Возвращаем оригинальные базовые веса
+                # Восстанавливаем оригинальные базовые веса из бэкапа
                 layer.c_fc.weight.data[:, m_idx] = self._base_weights_backup[layer_idx][m_idx]['fc1_w'].to(self.device)
                 layer.c_proj.weight.data[m_idx, :] = self._base_weights_backup[layer_idx][m_idx]['fc2_w'].to(self.device)
                 layer.c_fc.bias.data[m_idx] = self._base_weights_backup[layer_idx][m_idx]['fc1_b'].to(self.device)
         
         self._active_seed = None
     
-    def _backup_base_weights(self, seed_data: Dict) -> None:
-        """Сохраняет базовые веса для всех мастеров, которые будут задействованы."""
-        print("  Backup: сохранение базовых весов ноды...")
+    def _backup_base_weights_incremental(self, seed_data: Dict) -> None:
+        """
+        Сохраняет базовые веса ТОЛЬКО для тех мастеров, которых еще нет в бэкапе.
+        Это позволяет безопасно переключаться между разными семенами.
+        """
         for layer_idx, layer_data in seed_data['layers'].items():
             layer_idx = int(layer_idx)
             m_list = layer_data['masters']
             layer = self.model.transformer.h[layer_idx].mlp
             
-            self._base_weights_backup[layer_idx] = {}
+            if layer_idx not in self._base_weights_backup:
+                self._base_weights_backup[layer_idx] = {}
+            
             for m_idx in m_list:
-                self._base_weights_backup[layer_idx][m_idx] = {
-                    'fc1_w': layer.c_fc.weight.data[:, m_idx].clone().cpu(),
-                    'fc2_w': layer.c_proj.weight.data[m_idx, :].clone().cpu(),
-                    'fc1_b': layer.c_fc.bias.data[m_idx].clone().cpu()
-                }
+                # Сохраняем только если этого индекса еще нет в бэкапе
+                if m_idx not in self._base_weights_backup[layer_idx]:
+                    self._base_weights_backup[layer_idx][m_idx] = {
+                        'fc1_w': layer.c_fc.weight.data[:, m_idx].clone().cpu(),
+                        'fc2_w': layer.c_proj.weight.data[m_idx, :].clone().cpu(),
+                        'fc1_b': layer.c_fc.bias.data[m_idx].clone().cpu()
+                    }
     
     def _targeted_warmup(
         self,
