@@ -1,122 +1,169 @@
+#!/usr/bin/env python3
 import os
-import json
+import sys
 import torch
-import argparse
-from rich.console import Console
-from rich.prompt import Prompt
+from pathlib import Path
 
+from rich.console import Console
+from rich.panel import Panel
+from rich.prompt import Prompt, Confirm
+from rich.table import Table
+
+from meaning_seed.registry import load_seed, validate_seed_compatibility
 from meaning_seed.orchestrator import Orchestrator
-from meaning_seed.model_adapter import get_model_adapter
 from meaning_seed.i18n import get_t
 
 console = Console()
+chat_console = Console(markup=False) 
+
+# ЕДИНАЯ ПАПКА ДЛЯ МАСШТАБИРОВАННОЙ МОДЕЛИ
+ACTIVE_SCALED_DIR = Path("./scaled_model")
 
 def main():
-    # 1. Выбор языка
-    lang_choice = Prompt.ask("Выберите язык / Choose language [RU/EN]", choices=["RU", "EN", "ru", "en"], default="RU").lower()
-    lang = "ru" if lang_choice == "ru" else "en"
-
-    console.print(f"\n[bold cyan]{get_t('test_title', lang)}[/bold cyan]\n")
+    lang = Prompt.ask("Choose language / Выберите язык (ru/en)", choices=["ru", "en"], default="ru")
     
-    seeds_dir = "./seeds"
-    if not os.path.exists(seeds_dir):
-        console.print(f"[red]{get_t('test_no_seeds', lang)}[/red]")
-        return
+    console.print(Panel("[bold cyan]MeaningSeed: Universal Seed Tester[/bold cyan]", expand=False))
+    
+    seed_input = Prompt.ask(
+        get_t("seed_path_prompt", lang, default="./seeds/"),
+        default="./seeds"
+    ).strip()
+    
+    seed_path = Path(seed_input)
+    if seed_path.is_dir():
+        seeds = list(seed_path.glob("*.json"))
+        if not seeds:
+            console.print(f"[red]{get_t('no_seeds_found', lang)}[/red]")
+            return
         
-    json_files = [f for f in os.listdir(seeds_dir) if f.endswith(".json")]
-    if not json_files:
-        console.print(f"[red]{get_t('test_no_seeds', lang)}[/red]")
-        return
-
-    seeds = []
-    for filename in json_files:
-        filepath = os.path.join(seeds_dir, filename)
+        console.print(f"\n[bold]{get_t('available_seeds', lang)}[/bold]")
+        table = Table(show_header=True, box=None)
+        table.add_column("#", style="cyan")
+        table.add_column(get_t('seed_name', lang), style="bold")
+        table.add_column(get_t('target_model', lang), style="dim")
+        
+        for i, s in enumerate(seeds, 1):
+            data = load_seed(s)
+            model_name = data.get("model_name", "base_model")
+            table.add_row(str(i), s.name, model_name)
+        console.print(table)
+        
+        choice = Prompt.ask(get_t('select_seed', lang), default="1")
         try:
-            with open(filepath, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                seeds.append({
-                    "name": filename.replace(".json", ""),
-                    "layer": data.get("layer_idx", "?"),
-                    "scale": data.get("scale", "?"),
-                    "count": len(data.get("master_indices", [])),
-                    "model_type": data.get("model_type", "unknown"),
-                    "path": filepath
-                })
-        except Exception:
-            continue
-    
-    seeds.sort(key=lambda x: str(x["layer"]))
-    
-    console.print(f"[bold]{get_t('test_available', lang)}[/bold]")
-    for i, seed in enumerate(seeds):
-        console.print(f"  [{i+1}] {get_t('test_model', lang)}: {seed['model_type']}, Слой/Layer: {seed['layer']}, Нейронов/Neurons: {seed['count']}, x{seed['scale']} ({seed['name']})")
-    
-    choice = Prompt.ask(f"\n{get_t('test_select', lang)}", choices=[str(i) for i in range(1, len(seeds)+1)])
-    selected = seeds[int(choice) - 1]
+            seed_path = seeds[int(choice) - 1]
+        except (ValueError, IndexError):
+            console.print(f"[red]{get_t('invalid_choice', lang)}[/red]")
+            return
 
-    # 2. Умный выбор модели на основе данных из семени
-    console.print(f"\n[yellow]{get_t('test_seed_info', lang, model_type=selected['model_type'])}[/yellow]")
-    
-    # Если это qwen2, предлагаем 0.5B по умолчанию, но даем изменить
-    if selected['model_type'] == 'qwen2':
-        default_model = "Qwen/Qwen2.5-0.5B-Instruct"
-    else:
-        default_model = "unknown"
-        
-    model_id = Prompt.ask(get_t('test_model_prompt', lang), default=default_model)
-
-    console.print(f"\n[yellow]{get_t('test_loading', lang)}[/yellow]")
-    
-    orchestrator = Orchestrator(model_name=model_id, device="auto", lang=lang)
-    adapter = get_model_adapter(orchestrator.model, lang=lang)
-
-    with open(selected["path"], 'r', encoding='utf-8') as f:
-        seed_data = json.load(f)
-
-    # Проверка совместимости перед применением
-    if seed_data.get("model_type") != orchestrator.model.config.model_type:
-        console.print(f"[bold red]❌ Ошибка: Семя создано для '{seed_data.get('model_type')}', а вы загружаете '{orchestrator.model.config.model_type}'[/bold red]")
+    try:
+        seed_data = load_seed(str(seed_path))
+    except Exception as e:
+        console.print(f"[red]{get_t('seed_read_error', lang, error=str(e))}[/red]")
         return
 
-    adapter.scale_master_neurons(
-        orchestrator.model,
-        seed_data["layer_idx"],
-        seed_data["master_indices"],
-        seed_data["scale"]
-    )
+    model_name = seed_data.get("model_name", "Qwen/Qwen2.5-0.5B-Instruct")
+    scaling_factor = seed_data.get("scaling_factor", seed_data.get("scale", 1.0))
+    
+    console.print(f"\n[green]{get_t('seed_loaded', lang)}[/green] {seed_path.name}")
+    console.print(f"  {get_t('target_model', lang)}: [bold]{model_name}[/bold]")
+    console.print(f"  {get_t('scaling_factor', lang)}: [bold]x{scaling_factor}[/bold]")
 
-    console.print(f"[green]{get_t('test_applied', lang, layer=seed_data['layer_idx'], count=len(seed_data['master_indices']), scale=seed_data['scale'])}[/green]")
-    console.print(f"\n[bold cyan]{get_t('test_chat', lang)}[/bold cyan]\n")
+    # Проверяем наличие единой папки scaled_model
+    use_scaled_dir = ACTIVE_SCALED_DIR.exists() and (ACTIVE_SCALED_DIR / "config.json").exists()
     
-    orchestrator.model.eval()
-    exit_words = {"выход", "exit", "quit", "q"}
+    if use_scaled_dir:
+        console.print(f"\n[green]✓ Найдена активная масштабированная модель в:[/green] {ACTIVE_SCALED_DIR}")
+        if Confirm.ask("Использовать её? (Рекомендуется)", default=True):
+            load_target = str(ACTIVE_SCALED_DIR)
+            load_mode = "scaled"
+        else:
+            load_target = model_name
+            load_mode = "fresh"
+    else:
+        console.print(f"\n[dim]Папка {ACTIVE_SCALED_DIR} не найдена. Будет загружена базовая модель и применен сид.[/dim]")
+        load_target = model_name
+        load_mode = "fresh"
+
+    custom_model = Prompt.ask(
+        f"\nПереопределить путь к модели? (Enter для: {load_target})",
+        default=""
+    ).strip()
     
+    if custom_model:
+        load_target = custom_model
+        load_mode = "fresh"
+
+    console.print(f"\n[bold]Загрузка модели:[/bold] {load_target} ...")
+    try:
+        orchestrator = Orchestrator(model_name=load_target, lang=lang)
+    except Exception as e:
+        console.print(f"[red]Не удалось загрузить модель: {e}[/red]")
+        return
+
+    if load_mode == "fresh":
+        console.print("[bold]Проверка совместимости сида...[/bold]")
+        is_compatible, error_msg = validate_seed_compatibility(seed_data, orchestrator.model.config)
+        
+        if not is_compatible:
+            console.print(f"[red]Ошибка совместимости:[/red] {error_msg}")
+            return
+        
+        console.print("[green]Совместимость подтверждена. Применение сида...[/green]")
+        try:
+            orchestrator.load_and_apply_seed(str(seed_path))
+        except Exception as e:
+            console.print(f"[red]Ошибка применения сида: {e}[/red]")
+            return
+    else:
+        console.print("[green]Загружена готовая масштабированная модель.[/green]")
+
+    console.print("\n" + "="*50)
+    console.print("[bold cyan]Интерактивный цикл генерации[/bold cyan]")
+    console.print("[dim]Команды: 'exit' (выход), 'clear' (очистить историю)[/dim]")
+    console.print("="*50 + "\n")
+    
+    history = []
     while True:
         try:
-            prompt_text = Prompt.ask(f"\n[bold]{get_t('test_you', lang)}[/bold]")
-            if prompt_text.lower().strip() in exit_words:
+            user_input = input("Вы: ").strip()
+            if not user_input:
+                continue
+            if user_input.lower() in ['exit', 'quit', 'q', 'выход']:
+                console.print("\n[yellow]Завершение работы.[/yellow]")
                 break
+            if user_input.lower() == 'clear':
+                history = []
+                chat_console.print("[dim]История очищена.[/dim]\n")
+                continue
+
+            history.append({"role": "user", "content": user_input})
+            chat_console.print("\nМодель: (генерация...)", end="\r")
             
-            inputs = orchestrator.tokenizer(prompt_text, return_tensors="pt").to(orchestrator.model.device)
-            
-            with torch.no_grad():
-                outputs = orchestrator.model.generate(
-                    **inputs, max_new_tokens=100, do_sample=True,
-                    temperature=0.7, top_p=0.9,
-                    pad_token_id=orchestrator.tokenizer.eos_token_id
+            try:
+                response = orchestrator.generate(
+                    messages=history,
+                    max_new_tokens=256,
+                    temperature=0.7,
+                    top_p=0.9,
+                    do_sample=True
                 )
-            
-            response = orchestrator.tokenizer.decode(outputs[0], skip_special_tokens=True)
-            clean_response = response[len(prompt_text):].strip()
-            
-            console.print(f"[bold green]{get_t('test_model', lang)}:[/bold green] {clean_response}")
+            except Exception as e:
+                chat_console.print(f"\n[red]Ошибка генерации: {e}[/red]")
+                if len(history) >= 2:
+                    history = history[:-2]
+                continue
+
+            chat_console.print(" " * 60, end="\r")
+            history.append({"role": "assistant", "content": response})
+            chat_console.print(f"[bold blue]Модель:[/bold blue]\n{response}\n")
             
         except KeyboardInterrupt:
+            console.print("\n\n[yellow]Прервано.[/yellow]")
             break
         except Exception as e:
-            console.print(f"[red]Ошибка генерации: {e}[/red]")
-
-    console.print(f"\n[bold]{get_t('test_ended', lang)}[/bold]")
+            chat_console.print(f"\n[red]Критическая ошибка: {e}[/red]")
+            if len(history) >= 2:
+                history = history[:-2]
 
 if __name__ == "__main__":
     main()

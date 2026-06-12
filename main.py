@@ -516,7 +516,10 @@ def run_experiment(config, lang):
                 model_type=orchestrator.model.config.model_type,
                 layer_idx=layer_idx,
                 master_indices=indices,
-                scale=config["scale"]
+                scale=config["scale"],
+                model_hidden_size=getattr(orchestrator.model.config, "hidden_size", None),
+                model_name=config["model_id"],
+                scaled_model_path="./scaled_model"
             )
             orchestrator.apply_scaling(layer_idx, indices, config["scale"])
             
@@ -526,7 +529,7 @@ def run_experiment(config, lang):
         console.print(table)
         
         # Сохранение
-        save_path = f"./model_scaled_{int(time.time())}"
+        save_path = "./scaled_model"
         console.print(f"\n[bold yellow]{get_t('stage_save', lang, path=save_path)}[/bold yellow]")
         os.makedirs(save_path, exist_ok=True)
         orchestrator.model.save_pretrained(save_path)

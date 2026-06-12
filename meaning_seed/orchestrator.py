@@ -1,7 +1,7 @@
 import torch
 import json
 import os
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from .model_adapter import get_model_adapter
@@ -40,17 +40,32 @@ class Orchestrator:
         indices_str = str(master_indices)
         print(get_t("scaling_applied", self.lang, scale=scale, layer_idx=layer_idx, indices=indices_str))
 
-    def save_seed(self, filepath: str, layer_idx: int, master_indices: List[int], scale: float) -> None:
+    def save_seed(
+        self,
+        filepath: str,
+        layer_idx: int,
+        master_indices: List[int],
+        scale: float,
+        scaling_factor: Optional[float] = None,
+        target_layers: Optional[List[int]] = None,
+        neurons: Optional[Dict[int, List[int]]] = None,
+        scaled_model_path: Optional[str] = None,
+    ) -> None:
         seed_data = {
             "model_name": self.model_name,
             "model_type": self.model.config.model_type,
+            "model_hidden_size": getattr(self.model.config, "hidden_size", None),
+            "scaling_factor": scaling_factor,
+            "target_layers": target_layers,
+            "neurons": neurons,
+            "scaled_model_path": scaled_model_path,
             "layer_idx": layer_idx,
             "master_indices": master_indices,
-            "scale": scale
+            "scale": scale,
         }
         os.makedirs(os.path.dirname(os.path.abspath(filepath)), exist_ok=True)
         with open(filepath, 'w', encoding='utf-8') as f:
-            json.dump(seed_data, f, indent=2)
+            json.dump(seed_data, f, indent=2, ensure_ascii=False)
         print(get_t("seed_saved", self.lang, filepath=filepath))
 
     def load_and_apply_seed(self, filepath: str) -> Dict[str, Any]:
@@ -71,3 +86,45 @@ class Orchestrator:
         )
         print(get_t("seed_applied", self.lang, filepath=filepath))
         return seed_data
+
+    def generate(self, messages: list, max_new_tokens: int = 256, temperature: float = 0.7, top_p: float = 0.9, do_sample: bool = True) -> str:
+        inputs = self.tokenizer.apply_chat_template(
+            messages, 
+            tokenize=True, 
+            add_generation_prompt=True, 
+            return_tensors="pt"
+        ).to(self.model.device)
+        
+        with torch.no_grad():
+            outputs = self.model.generate(
+                inputs,
+                max_new_tokens=max_new_tokens,
+                temperature=temperature,
+                top_p=top_p,
+                do_sample=do_sample,
+                pad_token_id=self.tokenizer.eos_token_id
+            )
+        
+        response = self.tokenizer.decode(outputs[0][inputs.shape[1]:], skip_special_tokens=True)
+        return response.strip()
+
+    def generate(self, messages: List[Dict[str, str]], max_new_tokens: int = 256, temperature: float = 0.7, top_p: float = 0.9, do_sample: bool = True) -> str:
+        inputs = self.tokenizer.apply_chat_template(
+            messages, 
+            tokenize=True, 
+            add_generation_prompt=True, 
+            return_tensors="pt"
+        ).to(self.model.device)
+        
+        with torch.no_grad():
+            outputs = self.model.generate(
+                inputs,
+                max_new_tokens=max_new_tokens,
+                temperature=temperature,
+                top_p=top_p,
+                do_sample=do_sample,
+                pad_token_id=self.tokenizer.eos_token_id
+            )
+        
+        response = self.tokenizer.decode(outputs[0][inputs.shape[1]:], skip_special_tokens=True)
+        return response.strip()

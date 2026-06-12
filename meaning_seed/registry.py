@@ -1,8 +1,45 @@
 import json
 import os
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any, Optional, Tuple
 
 from .i18n import get_t
+
+
+def load_seed(seed_path: str) -> Dict[str, Any]:
+    """Загружает и парсит JSON-сид."""
+    with open(seed_path, 'r', encoding='utf-8') as f:
+        return json.load(f)
+
+
+def validate_seed_compatibility(seed_data: Dict[str, Any], model_config: Any) -> Tuple[bool, str]:
+    """
+    Проверяет совместимость сида с конфигурацией модели ДО применения.
+    Возвращает кортеж: (is_compatible: bool, error_message: str)
+    """
+    seed_type = seed_data.get("model_type")
+    config_type = getattr(model_config, "model_type", "unknown")
+    
+    if seed_type and config_type and seed_type != config_type:
+        return False, f"Несовпадение типа модели: Сид создан для '{seed_type}', но загружена модель '{config_type}'."
+    
+    seed_hidden_size = seed_data.get("model_hidden_size")
+    config_hidden_size = getattr(model_config, "hidden_size", None)
+    
+    if seed_hidden_size and config_hidden_size and seed_hidden_size != config_hidden_size:
+        return False, (
+            f"Критическое несовпадение размерностей: Сид ожидает hidden_size={seed_hidden_size} "
+            f"(например, 0.5B), но у загруженной модели hidden_size={config_hidden_size} "
+            f"(например, 1.5B). Применение весов невозможно без искажения тензоров."
+        )
+    
+    return True, "Совместимость подтверждена"
+
+
+def save_seed(seed_data: Dict[str, Any], seed_path: str) -> None:
+    """Сохраняет сид с обновленными метаданными."""
+    with open(seed_path, 'w', encoding='utf-8') as f:
+        json.dump(seed_data, f, indent=2, ensure_ascii=False)
+
 
 class SeedRegistry:
     def __init__(self, registry_dir: str = "./seeds", lang: str = "ru"):
@@ -30,13 +67,22 @@ class SeedRegistry:
                        model_type: str, 
                        layer_idx: int, 
                        master_indices: List[int], 
-                       scale: float) -> None:
+                       scale: float,
+                       model_hidden_size: Optional[int] = None,
+                       model_name: Optional[str] = None,
+                       scaled_model_path: Optional[str] = None) -> None:
         proof_data = {
             "model_type": model_type,
             "layer_idx": layer_idx,
             "master_indices": master_indices,
             "scale": scale
         }
+        if model_hidden_size is not None:
+            proof_data["model_hidden_size"] = model_hidden_size
+        if model_name is not None:
+            proof_data["model_name"] = model_name
+        if scaled_model_path is not None:
+            proof_data["scaled_model_path"] = scaled_model_path
         self._cache[proof_name] = proof_data
         
         filepath = os.path.join(self.registry_dir, f"{proof_name}.json")

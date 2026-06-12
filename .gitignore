@@ -27,3 +27,29 @@ model_scaled_*/
 *.pth
 __pycache__/
 *.pyc
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+venv_brain/
+ENV/
+
+# Project specific garbage
+model_scaled_*/
+scaled_model/
+*.egg-info/
+dist/
+build/
+
+# Large model files (never commit weights to git)
+*.bin
+*.safetensors
+*.ckpt
+*.pt
+
+# OS
+.DS_Store
+Thumbs.db
