@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+meaning_seed/__init__.py
+meaning_seed/extractor.py
+meaning_seed/orchestrator.py
+meaning_seed/registry.py
+meaning_seed.egg-info/PKG-INFO
+meaning_seed.egg-info/SOURCES.txt
+meaning_seed.egg-info/dependency_links.txt
+meaning_seed.egg-info/entry_points.txt
+meaning_seed.egg-info/requires.txt
+meaning_seed.egg-info/top_level.txt

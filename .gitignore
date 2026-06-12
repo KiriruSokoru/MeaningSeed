@@ -1,21 +1,22 @@
+# Виртуальные окружения
+venv/
+venv_brain/
+.env
+
+# Python кэш
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
-venv/
-env/
-ENV/
-*.egg-info/
-dist/
-build/
-.eggs/
-seeds/
-data/
-checkpoints/
+
+# Веса моделей (НИКОГДА не коммитьте их в Git, для этого есть Hugging Face)
+*.bin
+*.safetensors
 *.pt
-!examples/*.pt
-.ipynb_checkpoints/
+*.pth
+*.model
+qwen2-0.5b-scaled/
+*.gguf
+
+# OS файлы
 .DS_Store
-.vscode/
-.idea/
+Thumbs.db

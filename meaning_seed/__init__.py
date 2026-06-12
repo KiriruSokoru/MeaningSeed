@@ -1,12 +1,25 @@
 """
-MeaningSeed: Topological orchestration of LLM tasks via Ricci curvature.
+MeaningSeed: Real-World Proof для языковых моделей.
+Масштабируемая архитектура с поддержкой GPT-2, Qwen2 и других.
 """
 
-__version__ = "0.1.0"
-__author__ = "Kirill Sokol (KiriruSokoru)"
-
 from .orchestrator import Orchestrator
-from .extractor import MeaningExtractor
+from .extractor import ActivationExtractor
 from .registry import SeedRegistry
+from .model_adapter import (
+    get_model_adapter, 
+    BaseModelAdapter, 
+    GPT2Adapter, 
+    Qwen2Adapter
+)
 
-__all__ = ["Orchestrator", "MeaningExtractor", "SeedRegistry"]
+__version__ = "0.2.0"
+__all__ = [
+    "Orchestrator",
+    "ActivationExtractor",
+    "SeedRegistry",
+    "get_model_adapter",
+    "BaseModelAdapter",
+    "GPT2Adapter",
+    "Qwen2Adapter"
+]

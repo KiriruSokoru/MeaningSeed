@@ -1,198 +1,81 @@
-"""
-Orchestrator: Ядро оркестрации задач - inject, eject, targeted_warmup.
-"""
-
 import torch
-import torch.optim as optim
-import numpy as np
-from tqdm import tqdm
-from typing import Dict, List, Optional
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
+import json
+import os
+from typing import List, Dict, Any
+from transformers import AutoModelForCausalLM, AutoTokenizer
 
+from .model_adapter import get_model_adapter
 
 class Orchestrator:
     """
-    Управляет базовой моделью-нодой.
-    Позволяет мгновенно внедрять и извлекать топологические семена.
+    Главный координатор для работы с моделью: загрузка, извлечение весов, 
+    применение масштабирования и управление семенами (seeds).
     """
     
-    def __init__(
-        self,
-        model_name: str = "distilgpt2",
-        device: Optional[torch.device] = None
-    ):
-        self.device = device or torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    def __init__(self, model_name: str, device: str = "auto"):
         self.model_name = model_name
+        self.device = device if device != "auto" else ("cuda" if torch.cuda.is_available() else "cpu")
         
-        print(f"Загрузка базовой модели {model_name}...")
-        self.model = GPT2LMHeadModel.from_pretrained(model_name).to(self.device)
-        self.tokenizer = GPT2Tokenizer.from_pretrained(model_name)
-        self.tokenizer.pad_token = self.tokenizer.eos_token
-        
-        # Сохраняем "чистые" веса для восстановления (инкрементально)
-        self._base_weights_backup = {}
-        self._active_seed = None
-    
-    def inject_seed(
-        self,
-        seed_data: Dict,
-        warmup_epochs: int = 1,
-        dataloader: Optional[torch.utils.data.DataLoader] = None,
-        lr: float = 1e-3
-    ) -> None:
-        """
-        Внедряет семя в модель и выполняет целевой прогрев.
-        """
-        # Инкрементальное сохранение базовых весов (только для новых мастеров)
-        self._backup_base_weights_incremental(seed_data)
-        
-        # Если есть активное семя - сначала делаем eject
-        if self._active_seed is not None:
-            self.eject_seed()
-        
-        # Внедряем веса мастеров
-        print("  Inject: внедрение топологических якорей...")
-        for layer_idx, layer_data in seed_data['layers'].items():
-            layer_idx = int(layer_idx)
-            m_list = layer_data['masters']
-            layer = self.model.transformer.h[layer_idx].mlp
+        print(f"🔄 Загрузка токенизатора и модели: {model_name}...")
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        if self.tokenizer.pad_token is None:
+            self.tokenizer.pad_token = self.tokenizer.eos_token
             
-            for local_idx, m_idx in enumerate(m_list):
-                layer.c_fc.weight.data[:, m_idx] = layer_data['fc1_w'][:, local_idx].to(self.device)
-                layer.c_proj.weight.data[m_idx, :] = layer_data['fc2_w'][local_idx, :].to(self.device)
-                layer.c_fc.bias.data[m_idx] = layer_data['fc1_b'][local_idx].to(self.device)
-        
-        self._active_seed = seed_data
-        
-        # Targeted Warmup (только мастера)
-        if warmup_epochs > 0 and dataloader is not None:
-            print(f"  Warmup: {warmup_epochs} эпоха(и) целевого прогрева...")
-            self._targeted_warmup(dataloader, seed_data, warmup_epochs, lr)
-    
-    def eject_seed(self) -> None:
-        """
-        Извлечение: возвращает оригинальные базовые веса на место мастеров.
-        """
-        if self._active_seed is None:
-            print("  Нода уже чиста, нечего извлекать.")
-            return
-        
-        print("  Eject: восстановление базовых весов ноды...")
-        for layer_idx, layer_data in self._active_seed['layers'].items():
-            layer_idx = int(layer_idx)
-            m_list = layer_data['masters']
-            layer = self.model.transformer.h[layer_idx].mlp
-            
-            for m_idx in m_list:
-                # Восстанавливаем оригинальные базовые веса из бэкапа
-                layer.c_fc.weight.data[:, m_idx] = self._base_weights_backup[layer_idx][m_idx]['fc1_w'].to(self.device)
-                layer.c_proj.weight.data[m_idx, :] = self._base_weights_backup[layer_idx][m_idx]['fc2_w'].to(self.device)
-                layer.c_fc.bias.data[m_idx] = self._base_weights_backup[layer_idx][m_idx]['fc1_b'].to(self.device)
-        
-        self._active_seed = None
-    
-    def _backup_base_weights_incremental(self, seed_data: Dict) -> None:
-        """
-        Сохраняет базовые веса ТОЛЬКО для тех мастеров, которых еще нет в бэкапе.
-        Это позволяет безопасно переключаться между разными семенами.
-        """
-        for layer_idx, layer_data in seed_data['layers'].items():
-            layer_idx = int(layer_idx)
-            m_list = layer_data['masters']
-            layer = self.model.transformer.h[layer_idx].mlp
-            
-            if layer_idx not in self._base_weights_backup:
-                self._base_weights_backup[layer_idx] = {}
-            
-            for m_idx in m_list:
-                # Сохраняем только если этого индекса еще нет в бэкапе
-                if m_idx not in self._base_weights_backup[layer_idx]:
-                    self._base_weights_backup[layer_idx][m_idx] = {
-                        'fc1_w': layer.c_fc.weight.data[:, m_idx].clone().cpu(),
-                        'fc2_w': layer.c_proj.weight.data[m_idx, :].clone().cpu(),
-                        'fc1_b': layer.c_fc.bias.data[m_idx].clone().cpu()
-                    }
-    
-    def _targeted_warmup(
-        self,
-        dataloader: torch.utils.data.DataLoader,
-        seed_data: Dict,
-        epochs: int,
-        lr: float
-    ) -> None:
-        """
-        Целевой прогрев: обновляет ТОЛЬКО веса мастеров.
-        Остальные нейроны остаются нетронутыми (градиенты зануляются маской).
-        """
-        # Замораживаем всё
-        for param in self.model.parameters():
-            param.requires_grad = False
-        
-        # Размораживаем все MLP-слои (но градиенты будем маскировать)
-        for i in range(len(self.model.transformer.h)):
-            self.model.transformer.h[i].mlp.c_fc.weight.requires_grad = True
-            self.model.transformer.h[i].mlp.c_proj.weight.requires_grad = True
-            self.model.transformer.h[i].mlp.c_fc.bias.requires_grad = True
-        
-        opt = optim.Adam(filter(lambda p: p.requires_grad, self.model.parameters()), lr=lr)
-        
-        pbar_epochs = tqdm(range(epochs), desc="    Targeted Warmup", leave=True)
-        for epoch in pbar_epochs:
-            for batch in dataloader:
-                opt.zero_grad()
-                input_ids = batch['input_ids'].to(self.device)
-                labels = batch.get('labels', input_ids.clone()).to(self.device)
-                
-                out = self.model(input_ids=input_ids, labels=labels)
-                out.loss.backward()
-                
-                # Маскируем градиенты: оставляем только для мастеров
-                for layer_idx, layer_data in seed_data['layers'].items():
-                    layer_idx = int(layer_idx)
-                    m_list = layer_data['masters']
-                    layer = self.model.transformer.h[layer_idx].mlp
-                    
-                    mask_fc1 = torch.zeros_like(layer.c_fc.weight.grad)
-                    mask_fc2 = torch.zeros_like(layer.c_proj.weight.grad)
-                    mask_bias = torch.zeros_like(layer.c_fc.bias.grad)
-                    
-                    for m_idx in m_list:
-                        mask_fc1[:, m_idx] = 1
-                        mask_fc2[m_idx, :] = 1
-                        mask_bias[m_idx] = 1
-                    
-                    layer.c_fc.weight.grad.mul_(mask_fc1)
-                    layer.c_proj.weight.grad.mul_(mask_fc2)
-                    layer.c_fc.bias.grad.mul_(mask_bias)
-                
-                opt.step()
-            
-            pbar_epochs.set_postfix({'loss': f"{out.loss.item():.3f}"})
-    
-    def evaluate_perplexity(self, dataloader: torch.utils.data.DataLoader) -> float:
-        """Оценивает перплексию модели на даталоадере."""
-        self.model.eval()
-        total_loss, total_batches = 0, 0
-        
-        pbar = tqdm(dataloader, desc="  Оценка", leave=False)
-        with torch.no_grad():
-            for batch in pbar:
-                input_ids = batch['input_ids'].to(self.device)
-                labels = batch.get('labels', input_ids.clone()).to(self.device)
-                out = self.model(input_ids=input_ids, labels=labels)
-                total_loss += out.loss.item()
-                total_batches += 1
-        
-        self.model.train()
-        return float(np.exp(total_loss / total_batches))
-    
-    def generate(self, prompt: str, max_length: int = 50) -> str:
-        """Генерирует текст (для быстрой проверки навыка)."""
-        inputs = self.tokenizer(prompt, return_tensors='pt', padding=True).to(self.device)
-        outputs = self.model.generate(
-            **inputs,
-            max_length=max_length,
-            pad_token_id=self.tokenizer.eos_token_id,
-            do_sample=False
+        # Используем AutoModel для поддержки любой архитектуры
+        self.model = AutoModelForCausalLM.from_pretrained(
+            model_name, 
+            torch_dtype=torch.float16 if self.device == "cuda" else torch.float32,
+            device_map="auto" if self.device == "cuda" else None
         )
-        return self.tokenizer.decode(outputs[0], skip_special_tokens=True)
+        if self.device != "cuda": # Если device_map="auto" не использовался, переносим вручную
+            self.model = self.model.to(self.device)
+            
+        # Инициализируем правильный адаптер на основе конфигурации загруженной модели
+        self.adapter = get_model_adapter(self.model)
+        
+        print(f"✅ Модель загружена. Архитектура: {self.model.config.model_type}")
+        print(f"🔧 Используется адаптер: {self.adapter.__class__.__name__}")
+        print(f"📊 Всего слоёв: {self.adapter.get_num_layers(self.model)}")
+
+    def get_mlp_weights(self, layer_idx: int) -> Dict[str, torch.Tensor]:
+        """Получает веса MLP указанного слоя через адаптер."""
+        return self.adapter.get_mlp_weights(self.model, layer_idx)
+
+    def apply_scaling(self, layer_idx: int, master_indices: List[int], scale: float) -> None:
+        """Применяет масштабирование к мастер-нейронам через адаптер."""
+        self.adapter.scale_master_neurons(self.model, layer_idx, master_indices, scale)
+        print(f"⚡ Масштабирование x{scale} применено к слою {layer_idx}, нейроны: {master_indices}")
+
+    def save_seed(self, filepath: str, layer_idx: int, master_indices: List[int], scale: float) -> None:
+        """Сохраняет семя (Real-World Proof) в JSON файл."""
+        seed_data = {
+            "model_name": self.model_name,
+            "model_type": self.model.config.model_type,
+            "layer_idx": layer_idx,
+            "master_indices": master_indices,
+            "scale": scale
+        }
+        os.makedirs(os.path.dirname(os.path.abspath(filepath)), exist_ok=True)
+        with open(filepath, 'w', encoding='utf-8') as f:
+            json.dump(seed_data, f, indent=2)
+        print(f"💾 Семя сохранено в {filepath}")
+
+    def load_and_apply_seed(self, filepath: str) -> Dict[str, Any]:
+        """Загружает семя из файла и применяет его к текущей модели."""
+        with open(filepath, 'r', encoding='utf-8') as f:
+            seed_data = json.load(f)
+        
+        # Проверка совместимости архитектур
+        if seed_data.get("model_type") != self.model.config.model_type:
+            raise ValueError(
+                f"❌ Несоответствие архитектур! Семя создано для: {seed_data.get('model_type')}, "
+                f"текущая модель: {self.model.config.model_type}"
+            )
+            
+        self.apply_scaling(
+            seed_data["layer_idx"], 
+            seed_data["master_indices"], 
+            seed_data["scale"]
+        )
+        print(f"✅ Семя из {filepath} успешно применено.")
+        return seed_data
