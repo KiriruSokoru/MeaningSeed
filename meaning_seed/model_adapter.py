@@ -3,6 +3,8 @@ import torch.nn as nn
 from abc import ABC, abstractmethod
 from typing import Dict, List, Any, Callable
 
+from .i18n import get_t
+
 class BaseModelAdapter(ABC):
     """Базовый абстрактный класс адаптера модели."""
     
@@ -131,7 +133,7 @@ class Qwen2Adapter(BaseModelAdapter):
         return model.model.layers[layer_idx].mlp.up_proj.register_forward_hook(hook_fn)
 
 
-def get_model_adapter(model: nn.Module) -> BaseModelAdapter:
+def get_model_adapter(model: nn.Module, lang: str = "ru") -> BaseModelAdapter:
     """Фабричная функция для получения правильного адаптера."""
     model_type = getattr(model.config, "model_type", "").lower()
     
@@ -140,5 +142,4 @@ def get_model_adapter(model: nn.Module) -> BaseModelAdapter:
     elif "qwen2" in model_type:
         return Qwen2Adapter()
     else:
-        raise ValueError(f"Неподдерживаемая архитектура модели: {model_type}. "
-                         f"Поддерживаются: gpt2, qwen2")
+        raise ValueError(get_t("unsupported_arch", lang, model_type=model_type))
