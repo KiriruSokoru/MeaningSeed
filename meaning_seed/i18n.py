@@ -66,6 +66,31 @@ I18N = {
         "interrupted": "Прервано пользователем. Завершение.",
         "critical_error": "Критическая ошибка: {error}",
         "seed_read_error": "Ошибка чтения сида: {error}",
+
+        #Tomograph
+        "tomograph_title": "Томограф активности",
+        "tomograph_banner_subtitle": "Динамическое картирование любого мозга",
+        "ricci_hypothesis": "Гипотеза: аттрактор задачи удерживается нейронами с положительной кривизной Риччи",
+        "phase_passive_mapping": "Фаза 1: Пассивное картирование",
+        "phase_active_loop": "Фаза 2: Активная петля (хирургическое усиление)",
+        "phase_dehydration": "Фаза 3: Дегидрация семени",
+        "candidate_layers": "Слои-кандидаты",
+        "layer_idx": "Слой",
+        "type": "Тип",
+        "expand": "расширение",
+        "contract": "сжатие",
+        "position": "Позиция",
+        "iteration_complete": "Итерация {n} завершена",
+        "no_candidates_found": "Кандидаты не найдены",
+        "rank": "Ранг",
+        "neuron_id": "Нейрон",
+        "activation": "Активация",
+        "seed_saved": "Семя сохранено",
+        "path": "Путь",
+        "master_neurons": "Мастер-нейроны",
+        "file_size": "Размер",
+        "compatibility_hash": "Хеш совместимости",
+        "top_masters": "Топ мастеров"
     },
     "en": {
         # Orchestrator
@@ -132,6 +157,31 @@ I18N = {
         "interrupted": "Interrupted by user. Exiting.",
         "critical_error": "Critical error: {error}",
         "seed_read_error": "Seed read error: {error}",
+
+        #Tomograph
+        "tomograph_title": "Activity Tomograph",
+        "tomograph_banner_subtitle": "Dynamic mapping of any brain",
+        "ricci_hypothesis": "Hypothesis: Task attractor is held by neurons with positive Ricci curvature",
+        "phase_passive_mapping": "Phase 1: Passive mapping",
+        "phase_active_loop": "Phase 2: Active loop (surgical reinforcement)",
+        "phase_dehydration": "Phase 3: Seed dehydration",
+        "candidate_layers": "Candidate layers",
+        "layer_idx": "Layer",
+        "type": "Type",
+        "expand": "expand",
+        "contract": "contract",
+        "position": "Position",
+        "iteration_complete": "Iteration {n} complete",
+        "no_candidates_found": "No candidates found",
+        "rank": "Rank",
+        "neuron_id": "Neuron",
+        "activation": "Activation",
+        "seed_saved": "Seed saved",
+        "path": "Path",
+        "master_neurons": "Master neurons",
+        "file_size": "Size",
+        "compatibility_hash": "Compatibility hash",
+        "top_masters": "Top masters",
 
     }
 }

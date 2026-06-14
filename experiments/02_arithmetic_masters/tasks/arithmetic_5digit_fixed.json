@@ -1,0 +1,602 @@
+[
+  {
+    "id": 0,
+    "original_prompt": "Calculate: 45699 - 22502 = ?",
+    "prompt": "<|im_start|>user\nCompute 45699 - 22502\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 23197
+  },
+  {
+    "id": 1,
+    "original_prompt": "Calculate: 87368 - 59900 = ?",
+    "prompt": "<|im_start|>user\nCompute 87368 - 59900\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 27468
+  },
+  {
+    "id": 2,
+    "original_prompt": "Calculate: 29323 + 47222 = ?",
+    "prompt": "<|im_start|>user\nCompute 29323 + 47222\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 76545
+  },
+  {
+    "id": 3,
+    "original_prompt": "Calculate: 99339 - 43034 = ?",
+    "prompt": "<|im_start|>user\nCompute 99339 - 43034\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 56305
+  },
+  {
+    "id": 4,
+    "original_prompt": "Calculate: 78523 - 39044 = ?",
+    "prompt": "<|im_start|>user\nCompute 78523 - 39044\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 39479
+  },
+  {
+    "id": 5,
+    "original_prompt": "Calculate: 84586 + 63651 = ?",
+    "prompt": "<|im_start|>user\nCompute 84586 + 63651\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 148237
+  },
+  {
+    "id": 6,
+    "original_prompt": "Calculate: 84989 + 48937 = ?",
+    "prompt": "<|im_start|>user\nCompute 84989 + 48937\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 133926
+  },
+  {
+    "id": 7,
+    "original_prompt": "Calculate: 29942 - 12648 = ?",
+    "prompt": "<|im_start|>user\nCompute 29942 - 12648\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 17294
+  },
+  {
+    "id": 8,
+    "original_prompt": "Calculate: 59165 + 74865 = ?",
+    "prompt": "<|im_start|>user\nCompute 59165 + 74865\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 134030
+  },
+  {
+    "id": 9,
+    "original_prompt": "Calculate: 99541 - 24242 = ?",
+    "prompt": "<|im_start|>user\nCompute 99541 - 24242\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 75299
+  },
+  {
+    "id": 10,
+    "original_prompt": "Calculate: 34557 - 14418 = ?",
+    "prompt": "<|im_start|>user\nCompute 34557 - 14418\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 20139
+  },
+  {
+    "id": 11,
+    "original_prompt": "Calculate: 50762 + 20200 = ?",
+    "prompt": "<|im_start|>user\nCompute 50762 + 20200\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 70962
+  },
+  {
+    "id": 12,
+    "original_prompt": "Calculate: 47259 + 50108 = ?",
+    "prompt": "<|im_start|>user\nCompute 47259 + 50108\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 97367
+  },
+  {
+    "id": 13,
+    "original_prompt": "Calculate: 89102 + 30028 = ?",
+    "prompt": "<|im_start|>user\nCompute 89102 + 30028\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 119130
+  },
+  {
+    "id": 14,
+    "original_prompt": "Calculate: 41154 - 39323 = ?",
+    "prompt": "<|im_start|>user\nCompute 41154 - 39323\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 1831
+  },
+  {
+    "id": 15,
+    "original_prompt": "Calculate: 99775 - 94735 = ?",
+    "prompt": "<|im_start|>user\nCompute 99775 - 94735\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 5040
+  },
+  {
+    "id": 16,
+    "original_prompt": "Calculate: 97492 - 18445 = ?",
+    "prompt": "<|im_start|>user\nCompute 97492 - 18445\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 79047
+  },
+  {
+    "id": 17,
+    "original_prompt": "Calculate: 67343 - 62262 = ?",
+    "prompt": "<|im_start|>user\nCompute 67343 - 62262\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 5081
+  },
+  {
+    "id": 18,
+    "original_prompt": "Calculate: 88560 - 49571 = ?",
+    "prompt": "<|im_start|>user\nCompute 88560 - 49571\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 38989
+  },
+  {
+    "id": 19,
+    "original_prompt": "Calculate: 46758 + 30851 = ?",
+    "prompt": "<|im_start|>user\nCompute 46758 + 30851\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 77609
+  },
+  {
+    "id": 20,
+    "original_prompt": "Calculate: 68299 - 33098 = ?",
+    "prompt": "<|im_start|>user\nCompute 68299 - 33098\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 35201
+  },
+  {
+    "id": 21,
+    "original_prompt": "Calculate: 86213 - 83881 = ?",
+    "prompt": "<|im_start|>user\nCompute 86213 - 83881\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 2332
+  },
+  {
+    "id": 22,
+    "original_prompt": "Calculate: 90546 - 23321 = ?",
+    "prompt": "<|im_start|>user\nCompute 90546 - 23321\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 67225
+  },
+  {
+    "id": 23,
+    "original_prompt": "Calculate: 76497 + 12065 = ?",
+    "prompt": "<|im_start|>user\nCompute 76497 + 12065\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 88562
+  },
+  {
+    "id": 24,
+    "original_prompt": "Calculate: 87580 + 20552 = ?",
+    "prompt": "<|im_start|>user\nCompute 87580 + 20552\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 108132
+  },
+  {
+    "id": 25,
+    "original_prompt": "Calculate: 13594 + 44412 = ?",
+    "prompt": "<|im_start|>user\nCompute 13594 + 44412\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 58006
+  },
+  {
+    "id": 26,
+    "original_prompt": "Calculate: 97425 - 82388 = ?",
+    "prompt": "<|im_start|>user\nCompute 97425 - 82388\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 15037
+  },
+  {
+    "id": 27,
+    "original_prompt": "Calculate: 23326 + 99145 = ?",
+    "prompt": "<|im_start|>user\nCompute 23326 + 99145\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 122471
+  },
+  {
+    "id": 28,
+    "original_prompt": "Calculate: 32995 - 19143 = ?",
+    "prompt": "<|im_start|>user\nCompute 32995 - 19143\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 13852
+  },
+  {
+    "id": 29,
+    "original_prompt": "Calculate: 34517 + 52836 = ?",
+    "prompt": "<|im_start|>user\nCompute 34517 + 52836\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 87353
+  },
+  {
+    "id": 30,
+    "original_prompt": "Calculate: 74932 + 99929 = ?",
+    "prompt": "<|im_start|>user\nCompute 74932 + 99929\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 174861
+  },
+  {
+    "id": 31,
+    "original_prompt": "Calculate: 93581 - 22088 = ?",
+    "prompt": "<|im_start|>user\nCompute 93581 - 22088\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 71493
+  },
+  {
+    "id": 32,
+    "original_prompt": "Calculate: 24253 + 12223 = ?",
+    "prompt": "<|im_start|>user\nCompute 24253 + 12223\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 36476
+  },
+  {
+    "id": 33,
+    "original_prompt": "Calculate: 69280 + 90462 = ?",
+    "prompt": "<|im_start|>user\nCompute 69280 + 90462\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 159742
+  },
+  {
+    "id": 34,
+    "original_prompt": "Calculate: 34013 + 56463 = ?",
+    "prompt": "<|im_start|>user\nCompute 34013 + 56463\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 90476
+  },
+  {
+    "id": 35,
+    "original_prompt": "Calculate: 52375 - 16100 = ?",
+    "prompt": "<|im_start|>user\nCompute 52375 - 16100\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 36275
+  },
+  {
+    "id": 36,
+    "original_prompt": "Calculate: 29115 + 92320 = ?",
+    "prompt": "<|im_start|>user\nCompute 29115 + 92320\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 121435
+  },
+  {
+    "id": 37,
+    "original_prompt": "Calculate: 45432 - 36190 = ?",
+    "prompt": "<|im_start|>user\nCompute 45432 - 36190\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 9242
+  },
+  {
+    "id": 38,
+    "original_prompt": "Calculate: 65883 - 50865 = ?",
+    "prompt": "<|im_start|>user\nCompute 65883 - 50865\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 15018
+  },
+  {
+    "id": 39,
+    "original_prompt": "Calculate: 66150 + 39967 = ?",
+    "prompt": "<|im_start|>user\nCompute 66150 + 39967\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 106117
+  },
+  {
+    "id": 40,
+    "original_prompt": "Calculate: 94267 + 26948 = ?",
+    "prompt": "<|im_start|>user\nCompute 94267 + 26948\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 121215
+  },
+  {
+    "id": 41,
+    "original_prompt": "Calculate: 61013 + 69154 = ?",
+    "prompt": "<|im_start|>user\nCompute 61013 + 69154\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 130167
+  },
+  {
+    "id": 42,
+    "original_prompt": "Calculate: 95590 + 54784 = ?",
+    "prompt": "<|im_start|>user\nCompute 95590 + 54784\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 150374
+  },
+  {
+    "id": 43,
+    "original_prompt": "Calculate: 88973 - 14551 = ?",
+    "prompt": "<|im_start|>user\nCompute 88973 - 14551\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 74422
+  },
+  {
+    "id": 44,
+    "original_prompt": "Calculate: 53707 - 18560 = ?",
+    "prompt": "<|im_start|>user\nCompute 53707 - 18560\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 35147
+  },
+  {
+    "id": 45,
+    "original_prompt": "Calculate: 72704 - 67879 = ?",
+    "prompt": "<|im_start|>user\nCompute 72704 - 67879\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 4825
+  },
+  {
+    "id": 46,
+    "original_prompt": "Calculate: 85455 - 45812 = ?",
+    "prompt": "<|im_start|>user\nCompute 85455 - 45812\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 39643
+  },
+  {
+    "id": 47,
+    "original_prompt": "Calculate: 93404 + 75390 = ?",
+    "prompt": "<|im_start|>user\nCompute 93404 + 75390\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 168794
+  },
+  {
+    "id": 48,
+    "original_prompt": "Calculate: 85527 - 70913 = ?",
+    "prompt": "<|im_start|>user\nCompute 85527 - 70913\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 14614
+  },
+  {
+    "id": 49,
+    "original_prompt": "Calculate: 20594 + 78462 = ?",
+    "prompt": "<|im_start|>user\nCompute 20594 + 78462\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 99056
+  },
+  {
+    "id": 50,
+    "original_prompt": "Calculate: 39547 + 66098 = ?",
+    "prompt": "<|im_start|>user\nCompute 39547 + 66098\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 105645
+  },
+  {
+    "id": 51,
+    "original_prompt": "Calculate: 77804 - 54694 = ?",
+    "prompt": "<|im_start|>user\nCompute 77804 - 54694\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 23110
+  },
+  {
+    "id": 52,
+    "original_prompt": "Calculate: 91969 + 85933 = ?",
+    "prompt": "<|im_start|>user\nCompute 91969 + 85933\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 177902
+  },
+  {
+    "id": 53,
+    "original_prompt": "Calculate: 84707 - 75058 = ?",
+    "prompt": "<|im_start|>user\nCompute 84707 - 75058\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 9649
+  },
+  {
+    "id": 54,
+    "original_prompt": "Calculate: 86499 + 64569 = ?",
+    "prompt": "<|im_start|>user\nCompute 86499 + 64569\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 151068
+  },
+  {
+    "id": 55,
+    "original_prompt": "Calculate: 89778 + 87486 = ?",
+    "prompt": "<|im_start|>user\nCompute 89778 + 87486\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 177264
+  },
+  {
+    "id": 56,
+    "original_prompt": "Calculate: 71152 - 18001 = ?",
+    "prompt": "<|im_start|>user\nCompute 71152 - 18001\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 53151
+  },
+  {
+    "id": 57,
+    "original_prompt": "Calculate: 76781 - 44686 = ?",
+    "prompt": "<|im_start|>user\nCompute 76781 - 44686\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 32095
+  },
+  {
+    "id": 58,
+    "original_prompt": "Calculate: 85354 + 29301 = ?",
+    "prompt": "<|im_start|>user\nCompute 85354 + 29301\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 114655
+  },
+  {
+    "id": 59,
+    "original_prompt": "Calculate: 93686 - 62592 = ?",
+    "prompt": "<|im_start|>user\nCompute 93686 - 62592\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 31094
+  },
+  {
+    "id": 60,
+    "original_prompt": "Calculate: 99911 - 61609 = ?",
+    "prompt": "<|im_start|>user\nCompute 99911 - 61609\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 38302
+  },
+  {
+    "id": 61,
+    "original_prompt": "Calculate: 72049 - 54158 = ?",
+    "prompt": "<|im_start|>user\nCompute 72049 - 54158\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 17891
+  },
+  {
+    "id": 62,
+    "original_prompt": "Calculate: 83970 - 27111 = ?",
+    "prompt": "<|im_start|>user\nCompute 83970 - 27111\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 56859
+  },
+  {
+    "id": 63,
+    "original_prompt": "Calculate: 91378 - 47110 = ?",
+    "prompt": "<|im_start|>user\nCompute 91378 - 47110\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 44268
+  },
+  {
+    "id": 64,
+    "original_prompt": "Calculate: 40703 + 84645 = ?",
+    "prompt": "<|im_start|>user\nCompute 40703 + 84645\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 125348
+  },
+  {
+    "id": 65,
+    "original_prompt": "Calculate: 48827 + 44260 = ?",
+    "prompt": "<|im_start|>user\nCompute 48827 + 44260\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 93087
+  },
+  {
+    "id": 66,
+    "original_prompt": "Calculate: 21950 - 21679 = ?",
+    "prompt": "<|im_start|>user\nCompute 21950 - 21679\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 271
+  },
+  {
+    "id": 67,
+    "original_prompt": "Calculate: 31422 + 24208 = ?",
+    "prompt": "<|im_start|>user\nCompute 31422 + 24208\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 55630
+  },
+  {
+    "id": 68,
+    "original_prompt": "Calculate: 91458 - 32140 = ?",
+    "prompt": "<|im_start|>user\nCompute 91458 - 32140\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 59318
+  },
+  {
+    "id": 69,
+    "original_prompt": "Calculate: 30274 - 30269 = ?",
+    "prompt": "<|im_start|>user\nCompute 30274 - 30269\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 5
+  },
+  {
+    "id": 70,
+    "original_prompt": "Calculate: 67916 + 79488 = ?",
+    "prompt": "<|im_start|>user\nCompute 67916 + 79488\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 147404
+  },
+  {
+    "id": 71,
+    "original_prompt": "Calculate: 75396 + 32845 = ?",
+    "prompt": "<|im_start|>user\nCompute 75396 + 32845\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 108241
+  },
+  {
+    "id": 72,
+    "original_prompt": "Calculate: 57757 + 16847 = ?",
+    "prompt": "<|im_start|>user\nCompute 57757 + 16847\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 74604
+  },
+  {
+    "id": 73,
+    "original_prompt": "Calculate: 62259 - 46726 = ?",
+    "prompt": "<|im_start|>user\nCompute 62259 - 46726\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 15533
+  },
+  {
+    "id": 74,
+    "original_prompt": "Calculate: 58354 - 47425 = ?",
+    "prompt": "<|im_start|>user\nCompute 58354 - 47425\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 10929
+  },
+  {
+    "id": 75,
+    "original_prompt": "Calculate: 86107 - 82348 = ?",
+    "prompt": "<|im_start|>user\nCompute 86107 - 82348\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 3759
+  },
+  {
+    "id": 76,
+    "original_prompt": "Calculate: 49128 - 33539 = ?",
+    "prompt": "<|im_start|>user\nCompute 49128 - 33539\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 15589
+  },
+  {
+    "id": 77,
+    "original_prompt": "Calculate: 82881 - 80752 = ?",
+    "prompt": "<|im_start|>user\nCompute 82881 - 80752\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 2129
+  },
+  {
+    "id": 78,
+    "original_prompt": "Calculate: 73196 + 18289 = ?",
+    "prompt": "<|im_start|>user\nCompute 73196 + 18289\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 91485
+  },
+  {
+    "id": 79,
+    "original_prompt": "Calculate: 36536 + 74480 = ?",
+    "prompt": "<|im_start|>user\nCompute 36536 + 74480\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 111016
+  },
+  {
+    "id": 80,
+    "original_prompt": "Calculate: 95287 + 69814 = ?",
+    "prompt": "<|im_start|>user\nCompute 95287 + 69814\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 165101
+  },
+  {
+    "id": 81,
+    "original_prompt": "Calculate: 29492 + 58849 = ?",
+    "prompt": "<|im_start|>user\nCompute 29492 + 58849\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 88341
+  },
+  {
+    "id": 82,
+    "original_prompt": "Calculate: 48944 + 84723 = ?",
+    "prompt": "<|im_start|>user\nCompute 48944 + 84723\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 133667
+  },
+  {
+    "id": 83,
+    "original_prompt": "Calculate: 65932 - 46422 = ?",
+    "prompt": "<|im_start|>user\nCompute 65932 - 46422\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 19510
+  },
+  {
+    "id": 84,
+    "original_prompt": "Calculate: 35644 + 58246 = ?",
+    "prompt": "<|im_start|>user\nCompute 35644 + 58246\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 93890
+  },
+  {
+    "id": 85,
+    "original_prompt": "Calculate: 36935 + 79760 = ?",
+    "prompt": "<|im_start|>user\nCompute 36935 + 79760\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 116695
+  },
+  {
+    "id": 86,
+    "original_prompt": "Calculate: 85918 - 18889 = ?",
+    "prompt": "<|im_start|>user\nCompute 85918 - 18889\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 67029
+  },
+  {
+    "id": 87,
+    "original_prompt": "Calculate: 96542 - 22859 = ?",
+    "prompt": "<|im_start|>user\nCompute 96542 - 22859\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 73683
+  },
+  {
+    "id": 88,
+    "original_prompt": "Calculate: 78388 - 30184 = ?",
+    "prompt": "<|im_start|>user\nCompute 78388 - 30184\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 48204
+  },
+  {
+    "id": 89,
+    "original_prompt": "Calculate: 87808 - 57647 = ?",
+    "prompt": "<|im_start|>user\nCompute 87808 - 57647\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 30161
+  },
+  {
+    "id": 90,
+    "original_prompt": "Calculate: 62697 + 18285 = ?",
+    "prompt": "<|im_start|>user\nCompute 62697 + 18285\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 80982
+  },
+  {
+    "id": 91,
+    "original_prompt": "Calculate: 44437 + 18465 = ?",
+    "prompt": "<|im_start|>user\nCompute 44437 + 18465\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 62902
+  },
+  {
+    "id": 92,
+    "original_prompt": "Calculate: 21995 - 15121 = ?",
+    "prompt": "<|im_start|>user\nCompute 21995 - 15121\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 6874
+  },
+  {
+    "id": 93,
+    "original_prompt": "Calculate: 49941 + 40828 = ?",
+    "prompt": "<|im_start|>user\nCompute 49941 + 40828\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 90769
+  },
+  {
+    "id": 94,
+    "original_prompt": "Calculate: 98732 - 91503 = ?",
+    "prompt": "<|im_start|>user\nCompute 98732 - 91503\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 7229
+  },
+  {
+    "id": 95,
+    "original_prompt": "Calculate: 54435 - 37493 = ?",
+    "prompt": "<|im_start|>user\nCompute 54435 - 37493\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 16942
+  },
+  {
+    "id": 96,
+    "original_prompt": "Calculate: 66125 + 46538 = ?",
+    "prompt": "<|im_start|>user\nCompute 66125 + 46538\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 112663
+  },
+  {
+    "id": 97,
+    "original_prompt": "Calculate: 62107 + 56591 = ?",
+    "prompt": "<|im_start|>user\nCompute 62107 + 56591\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 118698
+  },
+  {
+    "id": 98,
+    "original_prompt": "Calculate: 54258 - 48162 = ?",
+    "prompt": "<|im_start|>user\nCompute 54258 - 48162\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 6096
+  },
+  {
+    "id": 99,
+    "original_prompt": "Calculate: 93603 - 34445 = ?",
+    "prompt": "<|im_start|>user\nCompute 93603 - 34445\n<|im_end|>\n<|im_start|>assistant\nThe answer is",
+    "answer": 59158
+  }
+]

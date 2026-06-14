@@ -1,0 +1,702 @@
+[
+  {
+    "id": 0,
+    "prompt": "Calculate: 45699 - 22502 = ?",
+    "answer": 23197,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 1,
+    "prompt": "Calculate: 87368 - 59900 = ?",
+    "answer": 27468,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 2,
+    "prompt": "Calculate: 29323 + 47222 = ?",
+    "answer": 76545,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 3,
+    "prompt": "Calculate: 99339 - 43034 = ?",
+    "answer": 56305,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 4,
+    "prompt": "Calculate: 78523 - 39044 = ?",
+    "answer": 39479,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 5,
+    "prompt": "Calculate: 84586 + 63651 = ?",
+    "answer": 148237,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 6,
+    "prompt": "Calculate: 84989 + 48937 = ?",
+    "answer": 133926,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 7,
+    "prompt": "Calculate: 29942 - 12648 = ?",
+    "answer": 17294,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 8,
+    "prompt": "Calculate: 59165 + 74865 = ?",
+    "answer": 134030,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 9,
+    "prompt": "Calculate: 99541 - 24242 = ?",
+    "answer": 75299,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 10,
+    "prompt": "Calculate: 34557 - 14418 = ?",
+    "answer": 20139,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 11,
+    "prompt": "Calculate: 50762 + 20200 = ?",
+    "answer": 70962,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 12,
+    "prompt": "Calculate: 47259 + 50108 = ?",
+    "answer": 97367,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 13,
+    "prompt": "Calculate: 89102 + 30028 = ?",
+    "answer": 119130,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 14,
+    "prompt": "Calculate: 41154 - 39323 = ?",
+    "answer": 1831,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 15,
+    "prompt": "Calculate: 99775 - 94735 = ?",
+    "answer": 5040,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 16,
+    "prompt": "Calculate: 97492 - 18445 = ?",
+    "answer": 79047,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 17,
+    "prompt": "Calculate: 67343 - 62262 = ?",
+    "answer": 5081,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 18,
+    "prompt": "Calculate: 88560 - 49571 = ?",
+    "answer": 38989,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 19,
+    "prompt": "Calculate: 46758 + 30851 = ?",
+    "answer": 77609,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 20,
+    "prompt": "Calculate: 68299 - 33098 = ?",
+    "answer": 35201,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 21,
+    "prompt": "Calculate: 86213 - 83881 = ?",
+    "answer": 2332,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 22,
+    "prompt": "Calculate: 90546 - 23321 = ?",
+    "answer": 67225,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 23,
+    "prompt": "Calculate: 76497 + 12065 = ?",
+    "answer": 88562,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 24,
+    "prompt": "Calculate: 87580 + 20552 = ?",
+    "answer": 108132,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 25,
+    "prompt": "Calculate: 13594 + 44412 = ?",
+    "answer": 58006,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 26,
+    "prompt": "Calculate: 97425 - 82388 = ?",
+    "answer": 15037,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 27,
+    "prompt": "Calculate: 23326 + 99145 = ?",
+    "answer": 122471,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 28,
+    "prompt": "Calculate: 32995 - 19143 = ?",
+    "answer": 13852,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 29,
+    "prompt": "Calculate: 34517 + 52836 = ?",
+    "answer": 87353,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 30,
+    "prompt": "Calculate: 74932 + 99929 = ?",
+    "answer": 174861,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 31,
+    "prompt": "Calculate: 93581 - 22088 = ?",
+    "answer": 71493,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 32,
+    "prompt": "Calculate: 24253 + 12223 = ?",
+    "answer": 36476,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 33,
+    "prompt": "Calculate: 69280 + 90462 = ?",
+    "answer": 159742,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 34,
+    "prompt": "Calculate: 34013 + 56463 = ?",
+    "answer": 90476,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 35,
+    "prompt": "Calculate: 52375 - 16100 = ?",
+    "answer": 36275,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 36,
+    "prompt": "Calculate: 29115 + 92320 = ?",
+    "answer": 121435,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 37,
+    "prompt": "Calculate: 45432 - 36190 = ?",
+    "answer": 9242,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 38,
+    "prompt": "Calculate: 65883 - 50865 = ?",
+    "answer": 15018,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 39,
+    "prompt": "Calculate: 66150 + 39967 = ?",
+    "answer": 106117,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 40,
+    "prompt": "Calculate: 94267 + 26948 = ?",
+    "answer": 121215,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 41,
+    "prompt": "Calculate: 61013 + 69154 = ?",
+    "answer": 130167,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 42,
+    "prompt": "Calculate: 95590 + 54784 = ?",
+    "answer": 150374,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 43,
+    "prompt": "Calculate: 88973 - 14551 = ?",
+    "answer": 74422,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 44,
+    "prompt": "Calculate: 53707 - 18560 = ?",
+    "answer": 35147,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 45,
+    "prompt": "Calculate: 72704 - 67879 = ?",
+    "answer": 4825,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 46,
+    "prompt": "Calculate: 85455 - 45812 = ?",
+    "answer": 39643,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 47,
+    "prompt": "Calculate: 93404 + 75390 = ?",
+    "answer": 168794,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 48,
+    "prompt": "Calculate: 85527 - 70913 = ?",
+    "answer": 14614,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 49,
+    "prompt": "Calculate: 20594 + 78462 = ?",
+    "answer": 99056,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 50,
+    "prompt": "Calculate: 39547 + 66098 = ?",
+    "answer": 105645,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 51,
+    "prompt": "Calculate: 77804 - 54694 = ?",
+    "answer": 23110,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 52,
+    "prompt": "Calculate: 91969 + 85933 = ?",
+    "answer": 177902,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 53,
+    "prompt": "Calculate: 84707 - 75058 = ?",
+    "answer": 9649,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 54,
+    "prompt": "Calculate: 86499 + 64569 = ?",
+    "answer": 151068,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 55,
+    "prompt": "Calculate: 89778 + 87486 = ?",
+    "answer": 177264,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 56,
+    "prompt": "Calculate: 71152 - 18001 = ?",
+    "answer": 53151,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 57,
+    "prompt": "Calculate: 76781 - 44686 = ?",
+    "answer": 32095,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 58,
+    "prompt": "Calculate: 85354 + 29301 = ?",
+    "answer": 114655,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 59,
+    "prompt": "Calculate: 93686 - 62592 = ?",
+    "answer": 31094,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 60,
+    "prompt": "Calculate: 99911 - 61609 = ?",
+    "answer": 38302,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 61,
+    "prompt": "Calculate: 72049 - 54158 = ?",
+    "answer": 17891,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 62,
+    "prompt": "Calculate: 83970 - 27111 = ?",
+    "answer": 56859,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 63,
+    "prompt": "Calculate: 91378 - 47110 = ?",
+    "answer": 44268,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 64,
+    "prompt": "Calculate: 40703 + 84645 = ?",
+    "answer": 125348,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 65,
+    "prompt": "Calculate: 48827 + 44260 = ?",
+    "answer": 93087,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 66,
+    "prompt": "Calculate: 21950 - 21679 = ?",
+    "answer": 271,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 67,
+    "prompt": "Calculate: 31422 + 24208 = ?",
+    "answer": 55630,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 68,
+    "prompt": "Calculate: 91458 - 32140 = ?",
+    "answer": 59318,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 69,
+    "prompt": "Calculate: 30274 - 30269 = ?",
+    "answer": 5,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 70,
+    "prompt": "Calculate: 67916 + 79488 = ?",
+    "answer": 147404,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 71,
+    "prompt": "Calculate: 75396 + 32845 = ?",
+    "answer": 108241,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 72,
+    "prompt": "Calculate: 57757 + 16847 = ?",
+    "answer": 74604,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 73,
+    "prompt": "Calculate: 62259 - 46726 = ?",
+    "answer": 15533,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 74,
+    "prompt": "Calculate: 58354 - 47425 = ?",
+    "answer": 10929,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 75,
+    "prompt": "Calculate: 86107 - 82348 = ?",
+    "answer": 3759,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 76,
+    "prompt": "Calculate: 49128 - 33539 = ?",
+    "answer": 15589,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 77,
+    "prompt": "Calculate: 82881 - 80752 = ?",
+    "answer": 2129,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 78,
+    "prompt": "Calculate: 73196 + 18289 = ?",
+    "answer": 91485,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 79,
+    "prompt": "Calculate: 36536 + 74480 = ?",
+    "answer": 111016,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 80,
+    "prompt": "Calculate: 95287 + 69814 = ?",
+    "answer": 165101,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 81,
+    "prompt": "Calculate: 29492 + 58849 = ?",
+    "answer": 88341,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 82,
+    "prompt": "Calculate: 48944 + 84723 = ?",
+    "answer": 133667,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 83,
+    "prompt": "Calculate: 65932 - 46422 = ?",
+    "answer": 19510,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 84,
+    "prompt": "Calculate: 35644 + 58246 = ?",
+    "answer": 93890,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 85,
+    "prompt": "Calculate: 36935 + 79760 = ?",
+    "answer": 116695,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 86,
+    "prompt": "Calculate: 85918 - 18889 = ?",
+    "answer": 67029,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 87,
+    "prompt": "Calculate: 96542 - 22859 = ?",
+    "answer": 73683,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 88,
+    "prompt": "Calculate: 78388 - 30184 = ?",
+    "answer": 48204,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 89,
+    "prompt": "Calculate: 87808 - 57647 = ?",
+    "answer": 30161,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 90,
+    "prompt": "Calculate: 62697 + 18285 = ?",
+    "answer": 80982,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 91,
+    "prompt": "Calculate: 44437 + 18465 = ?",
+    "answer": 62902,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 92,
+    "prompt": "Calculate: 21995 - 15121 = ?",
+    "answer": 6874,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 93,
+    "prompt": "Calculate: 49941 + 40828 = ?",
+    "answer": 90769,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 94,
+    "prompt": "Calculate: 98732 - 91503 = ?",
+    "answer": 7229,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 95,
+    "prompt": "Calculate: 54435 - 37493 = ?",
+    "answer": 16942,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 96,
+    "prompt": "Calculate: 66125 + 46538 = ?",
+    "answer": 112663,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 97,
+    "prompt": "Calculate: 62107 + 56591 = ?",
+    "answer": 118698,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 98,
+    "prompt": "Calculate: 54258 - 48162 = ?",
+    "answer": 6096,
+    "num_digits": 5,
+    "operation": "mixed"
+  },
+  {
+    "id": 99,
+    "prompt": "Calculate: 93603 - 34445 = ?",
+    "answer": 59158,
+    "num_digits": 5,
+    "operation": "mixed"
+  }
+]

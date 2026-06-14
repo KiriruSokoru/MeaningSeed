@@ -1,0 +1,374 @@
+{
+  "version": "arithmetic_02",
+  "model_source": "Qwen/Qwen2.5-0.5B-Instruct",
+  "task": "arithmetic_5digit",
+  "num_correct": 61,
+  "total_tasks": 100,
+  "masters": [
+    {
+      "layer": "model.layers.1.self_attn.k_proj",
+      "neuron": 127,
+      "mean": 147.0609893798828,
+      "variance": 0.21540018916130066
+    },
+    {
+      "layer": "model.layers.0.self_attn.k_proj",
+      "neuron": 31,
+      "mean": 121.32859802246094,
+      "variance": 0.016828007996082306
+    },
+    {
+      "layer": "model.layers.0.self_attn.k_proj",
+      "neuron": 29,
+      "mean": 112.58206176757812,
+      "variance": 0.1184011921286583
+    },
+    {
+      "layer": "model.layers.1.self_attn.k_proj",
+      "neuron": 94,
+      "mean": 82.9346694946289,
+      "variance": 0.11145371943712234
+    },
+    {
+      "layer": "model.layers.0.self_attn.k_proj",
+      "neuron": 124,
+      "mean": 71.1282730102539,
+      "variance": 0.18943706154823303
+    },
+    {
+      "layer": "model.layers.0.self_attn.k_proj",
+      "neuron": 63,
+      "mean": 67.80247497558594,
+      "variance": 0.376902312040329
+    },
+    {
+      "layer": "model.layers.0.self_attn.k_proj",
+      "neuron": 59,
+      "mean": 51.752811431884766,
+      "variance": 0.3477126657962799
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 395,
+      "mean": 49.103904724121094,
+      "variance": 0.22668087482452393
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 564,
+      "mean": 46.24688720703125,
+      "variance": 0.04995899274945259
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 568,
+      "mean": 44.19197463989258,
+      "variance": 0.026346150785684586
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 884,
+      "mean": 39.658267974853516,
+      "variance": 0.0058260816149413586
+    },
+    {
+      "layer": "model.layers.0.self_attn.k_proj",
+      "neuron": 112,
+      "mean": 33.45375442504883,
+      "variance": 0.4653419852256775
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 756,
+      "mean": 33.31043243408203,
+      "variance": 0.0031703105196356773
+    },
+    {
+      "layer": "model.layers.0.self_attn.k_proj",
+      "neuron": 28,
+      "mean": 33.26923751831055,
+      "variance": 0.49732664227485657
+    },
+    {
+      "layer": "model.layers.1.self_attn.k_proj",
+      "neuron": 90,
+      "mean": 28.908079147338867,
+      "variance": 0.19385714828968048
+    },
+    {
+      "layer": "model.layers.0.self_attn.k_proj",
+      "neuron": 60,
+      "mean": 25.426542282104492,
+      "variance": 0.13518361747264862
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 665,
+      "mean": 25.368562698364258,
+      "variance": 0.013029270805418491
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 537,
+      "mean": 25.059772491455078,
+      "variance": 0.005771914031356573
+    },
+    {
+      "layer": "model.layers.7.self_attn.q_proj",
+      "neuron": 766,
+      "mean": 24.707632064819336,
+      "variance": 0.30504414439201355
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 532,
+      "mean": 23.72801971435547,
+      "variance": 0.013092054054141045
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 652,
+      "mean": 23.564010620117188,
+      "variance": 0.2352253496646881
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 655,
+      "mean": 23.19818878173828,
+      "variance": 0.06407694518566132
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 104,
+      "mean": 22.444686889648438,
+      "variance": 0.0432627908885479
+    },
+    {
+      "layer": "model.layers.7.self_attn.q_proj",
+      "neuron": 830,
+      "mean": 21.740575790405273,
+      "variance": 0.28712138533592224
+    },
+    {
+      "layer": "model.layers.7.self_attn.q_proj",
+      "neuron": 702,
+      "mean": 21.546276092529297,
+      "variance": 0.188019260764122
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 234,
+      "mean": 21.260807037353516,
+      "variance": 0.03248351812362671
+    },
+    {
+      "layer": "model.layers.7.self_attn.q_proj",
+      "neuron": 58,
+      "mean": 21.18102264404297,
+      "variance": 0.4724438488483429
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 138,
+      "mean": 21.176240921020508,
+      "variance": 0.03248979523777962
+    },
+    {
+      "layer": "model.layers.7.self_attn.q_proj",
+      "neuron": 250,
+      "mean": 21.125364303588867,
+      "variance": 0.2351897656917572
+    },
+    {
+      "layer": "model.layers.0.self_attn.k_proj",
+      "neuron": 50,
+      "mean": 21.05866813659668,
+      "variance": 0.0035546175204217434
+    },
+    {
+      "layer": "model.layers.7.self_attn.q_proj",
+      "neuron": 442,
+      "mean": 21.04281234741211,
+      "variance": 0.13042442500591278
+    },
+    {
+      "layer": "model.layers.15.self_attn.q_proj",
+      "neuron": 155,
+      "mean": 21.02743148803711,
+      "variance": 0.3888570964336395
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 744,
+      "mean": 20.62221908569336,
+      "variance": 0.3503856062889099
+    },
+    {
+      "layer": "model.layers.7.self_attn.q_proj",
+      "neuron": 638,
+      "mean": 20.541772842407227,
+      "variance": 0.05641258880496025
+    },
+    {
+      "layer": "model.layers.0.self_attn.k_proj",
+      "neuron": 14,
+      "mean": 20.505823135375977,
+      "variance": 0.026105642318725586
+    },
+    {
+      "layer": "model.layers.12.self_attn.q_proj",
+      "neuron": 32,
+      "mean": 20.092784881591797,
+      "variance": 0.4807586669921875
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 599,
+      "mean": 19.949600219726562,
+      "variance": 0.05575558543205261
+    },
+    {
+      "layer": "model.layers.7.self_attn.q_proj",
+      "neuron": 378,
+      "mean": 19.58310317993164,
+      "variance": 0.2710392475128174
+    },
+    {
+      "layer": "model.layers.4.self_attn.q_proj",
+      "neuron": 410,
+      "mean": 18.968746185302734,
+      "variance": 0.4884621202945709
+    },
+    {
+      "layer": "model.layers.4.self_attn.q_proj",
+      "neuron": 26,
+      "mean": 18.95315933227539,
+      "variance": 0.3133666217327118
+    },
+    {
+      "layer": "model.layers.19.self_attn.q_proj",
+      "neuron": 763,
+      "mean": 18.455060958862305,
+      "variance": 0.4629887044429779
+    },
+    {
+      "layer": "model.layers.0.self_attn.k_proj",
+      "neuron": 18,
+      "mean": 18.380199432373047,
+      "variance": 0.43753543496131897
+    },
+    {
+      "layer": "model.layers.4.self_attn.q_proj",
+      "neuron": 346,
+      "mean": 18.35140609741211,
+      "variance": 0.24900683760643005
+    },
+    {
+      "layer": "model.layers.0.self_attn.k_proj",
+      "neuron": 88,
+      "mean": 18.34853172302246,
+      "variance": 0.06435052305459976
+    },
+    {
+      "layer": "model.layers.4.self_attn.q_proj",
+      "neuron": 282,
+      "mean": 18.233997344970703,
+      "variance": 0.28044429421424866
+    },
+    {
+      "layer": "model.layers.19.self_attn.q_proj",
+      "neuron": 891,
+      "mean": 18.06629753112793,
+      "variance": 0.4176819324493408
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 237,
+      "mean": 17.958816528320312,
+      "variance": 0.05388176813721657
+    },
+    {
+      "layer": "model.layers.4.self_attn.q_proj",
+      "neuron": 90,
+      "mean": 17.95240592956543,
+      "variance": 0.24889250099658966
+    },
+    {
+      "layer": "model.layers.12.self_attn.q_proj",
+      "neuron": 63,
+      "mean": 17.920101165771484,
+      "variance": 0.15005794167518616
+    },
+    {
+      "layer": "model.layers.8.self_attn.q_proj",
+      "neuron": 825,
+      "mean": 17.89100456237793,
+      "variance": 0.17044492065906525
+    },
+    {
+      "layer": "model.layers.7.self_attn.q_proj",
+      "neuron": 186,
+      "mean": 17.888425827026367,
+      "variance": 0.14123092591762543
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 121,
+      "mean": 17.74697494506836,
+      "variance": 0.30497369170188904
+    },
+    {
+      "layer": "model.layers.8.self_attn.q_proj",
+      "neuron": 569,
+      "mean": 17.73356819152832,
+      "variance": 0.12423862516880035
+    },
+    {
+      "layer": "model.layers.0.self_attn.q_proj",
+      "neuron": 666,
+      "mean": 17.483516693115234,
+      "variance": 0.06039610877633095
+    },
+    {
+      "layer": "model.layers.15.self_attn.q_proj",
+      "neuron": 219,
+      "mean": 17.479921340942383,
+      "variance": 0.33183205127716064
+    },
+    {
+      "layer": "model.layers.7.self_attn.q_proj",
+      "neuron": 894,
+      "mean": 17.25649070739746,
+      "variance": 0.17273379862308502
+    },
+    {
+      "layer": "model.layers.8.self_attn.q_proj",
+      "neuron": 889,
+      "mean": 17.004457473754883,
+      "variance": 0.051186706870794296
+    },
+    {
+      "layer": "model.layers.8.self_attn.q_proj",
+      "neuron": 633,
+      "mean": 16.87657356262207,
+      "variance": 0.0681850016117096
+    },
+    {
+      "layer": "model.layers.0.self_attn.k_proj",
+      "neuron": 57,
+      "mean": 16.834190368652344,
+      "variance": 0.013432967476546764
+    },
+    {
+      "layer": "model.layers.8.self_attn.q_proj",
+      "neuron": 697,
+      "mean": 16.54338264465332,
+      "variance": 0.1574290245771408
+    }
+  ],
+  "params": {
+    "min_mean": 0.05,
+    "max_variance": 0.5,
+    "temperature": 0.1
+  }
+}
