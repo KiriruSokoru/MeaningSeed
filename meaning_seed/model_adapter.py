@@ -213,7 +213,8 @@ def get_model_adapter(model: nn.Module, lang: str = "ru") -> BaseModelAdapter:
         >>> print(type(adapter))
         <class 'meaning_seed.model_adapter.Qwen2Adapter'>
     """
-    model_type = getattr(model.config, "model_type", "").lower()
+    config = getattr(model, "config", None)
+    model_type = getattr(config, "model_type", "").lower() if config else ""
     
     if "gpt2" in model_type:
         return GPT2Adapter(lang=lang)
