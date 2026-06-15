@@ -1,4 +1,10 @@
-# meaning_seed/i18n.py
+import logging
+import string
+from typing import Any
+
+__all__ = ["get_t"]
+
+logger = logging.getLogger(__name__)
 
 I18N = {
     "ru": {
@@ -11,23 +17,23 @@ I18N = {
         "seed_saved": "💾 Семя сохранено в {filepath}",
         "seed_applied": "✅ Семя из {filepath} успешно применено.",
         "arch_mismatch": "❌ Несоответствие архитектур! Семя создано для: {seed_type}, текущая модель: {current_type}",
-        
+
         # Extractor
         "collecting_activations": "🧠 Сбор активаций MLP",
         "batch": "batch",
         "master_neurons_found": "🔍 Слой {layer_idx}: Топ-{top_k} мастер-нейронов найдены. Макс. активация: {max_act:.4f}",
-        
+
         # Registry
         "proof_registered": "✅ Proof '{proof_name}' зарегистрирован и сохранен в {filepath}",
         "error_reading_file": "⚠️ Ошибка чтения файла: {filename}",
-        
+
         # Model Adapter
         "unsupported_arch": "Неподдерживаемая архитектура модели: {model_type}. Поддерживаются: gpt2, qwen2",
-        "model_options": "  [1] [bold green]Qwen2.5-0.5B[/bold green] (рекомендуется для CPU, ~1GB RAM)\n  [2] [bold yellow]Qwen2.5-1.5B[/bold yellow] (требуется ~3GB свободной RAM)\n  [3] [bold yellow]Qwen2.5-3B[/bold yellow] (требуется ~6GB свободной RAM)\n  [4] [bold red]Своя модель с HuggingFace[/bold red] (укажите ID)",
-        "dataset_options": "  [1] Быстрый демо-набор (50 фраз, ~1 минута)\n  [2] [bold]Реальный набор Alpaca[/bold] (200 инструкций, ~15-20 минут)\n  [3] Свой JSON файл",
-        "depth_options": "  [1] Быстрый тест (один средний слой)\n  [2] [bold]Полный анализ[/bold] (все слои модели — даст полную карту)\n  [3] Выбранные слои (введите через пробел, например: 10 12 14)",
-        "intensity_options": "  [1] [bold green]Сбалансированная[/bold green] (x1.5, топ-10 нейронов) — рекомендуется\n  [2] [bold yellow]Агрессивная[/bold yellow] (x2.0, топ-20 нейронов) — возможны галлюцинации\n  [3] [bold cyan]Подавление[/bold cyan] (x0.5, топ-10) — делает ответы шаблоннее",
-        "menu_options": "  [1] [bold green]🧪 Протестировать созданные семена[/bold green] (интерактивный чат)\n  [2] [bold cyan]🔄 Повторить эксперимент[/bold cyan] (с другими параметрами)\n  [3] [bold red]🚪 Завершить работу[/bold red]",
+        "model_options": " [1] [bold green]Qwen2.5-0.5B[/bold green] (рекомендуется для CPU, ~1GB RAM)\\n [2] [bold yellow]Qwen2.5-1.5B[/bold yellow] (требуется ~3GB свободной RAM)\\n [3] [bold yellow]Qwen2.5-3B[/bold yellow] (требуется ~6GB свободной RAM)\\n [4] [bold red]Своя модель с HuggingFace[/bold red] (укажите ID)",
+        "dataset_options": " [1] Быстрый демо-набор (50 фраз, ~1 минута)\\n [2] [bold]Реальный набор Alpaca[/bold] (200 инструкций, ~15-20 минут)\\n [3] Свой JSON файл",
+        "depth_options": " [1] Быстрый тест (один средний слой)\\n [2] [bold]Полный анализ[/bold] (все слои модели — даст полную карту)\\n [3] Выбранные слои (введите через пробел, например: 10 12 14)",
+        "intensity_options": " [1] [bold green]Сбалансированная[/bold green] (x1.5, топ-10 нейронов) — рекомендуется\\n [2] [bold yellow]Агрессивная[/bold yellow] (x2.0, топ-20 нейронов) — возможны галлюцинации\\n [3] [bold cyan]Подавление[/bold cyan] (x0.5, топ-10) — делает ответы шаблоннее",
+        "menu_options": " [1] [bold green]🧪 Протестировать созданные семена[/bold green] (интерактивный чат)\\n [2] [bold cyan]🔄 Повторить эксперимент[/bold cyan] (с другими параметрами)\\n [3] [bold red]🚪 Завершить работу[/bold red]",
 
         #Seeds
         "seed_path_prompt": "Введите путь к JSON-сиду (или оставьте пустым для сканирования {default})",
@@ -102,23 +108,23 @@ I18N = {
         "seed_saved": "💾 Seed saved to {filepath}",
         "seed_applied": "✅ Seed from {filepath} successfully applied.",
         "arch_mismatch": "❌ Architecture mismatch! Seed created for: {seed_type}, current model: {current_type}",
-        
+
         # Extractor
         "collecting_activations": "🧠 Collecting MLP activations",
         "batch": "batch",
         "master_neurons_found": "🔍 Layer {layer_idx}: Top-{top_k} master neurons found. Max activation: {max_act:.4f}",
-        
+
         # Registry
         "proof_registered": "✅ Proof '{proof_name}' registered and saved to {filepath}",
         "error_reading_file": "⚠️ Error reading file: {filename}",
-        
+
         # Model Adapter
         "unsupported_arch": "Unsupported model architecture: {model_type}. Supported: gpt2, qwen2",
-        "model_options": "  [1] [bold green]Qwen2.5-0.5B[/bold green] (recommended for CPU, ~1GB RAM)\n  [2] [bold yellow]Qwen2.5-1.5B[/bold yellow] (requires ~3GB free RAM)\n  [3] [bold yellow]Qwen2.5-3B[/bold yellow] (requires ~6GB free RAM)\n  [4] [bold red]Custom model from HuggingFace[/bold red] (specify ID)",
-        "dataset_options": "  [1] Quick demo set (50 phrases, ~1 minute)\n  [2] [bold]Real Alpaca dataset[/bold] (200 instructions, ~15-20 minutes)\n  [3] Custom JSON file",
-        "depth_options": "  [1] Quick test (one middle layer)\n  [2] [bold]Full analysis[/bold] (all model layers — gives complete map)\n  [3] Custom layers (enter space-separated, e.g.: 10 12 14)",
-        "intensity_options": "  [1] [bold green]Balanced[/bold green] (x1.5, top-10 neurons) — recommended\n  [2] [bold yellow]Aggressive[/bold yellow] (x2.0, top-20 neurons) — may cause hallucinations\n  [3] [bold cyan]Suppression[/bold cyan] (x0.5, top-10) — makes responses more template-like",
-        "menu_options": "  [1] [bold green]🧪 Test created seeds[/bold green] (interactive chat)\n  [2] [bold cyan]🔄 Repeat experiment[/bold cyan] (with different parameters)\n  [3] [bold red]🚪 Exit[/bold red]",
+        "model_options": " [1] [bold green]Qwen2.5-0.5B[/bold green] (recommended for CPU, ~1GB RAM)\\n [2] [bold yellow]Qwen2.5-1.5B[/bold yellow] (requires ~3GB free RAM)\\n [3] [bold yellow]Qwen2.5-3B[/bold yellow] (requires ~6GB free RAM)\\n [4] [bold red]Custom model from HuggingFace[/bold red] (specify ID)",
+        "dataset_options": " [1] Quick demo set (50 phrases, ~1 minute)\\n [2] [bold]Real Alpaca dataset[/bold] (200 instructions, ~15-20 minutes)\\n [3] Custom JSON file",
+        "depth_options": " [1] Quick test (one middle layer)\\n [2] [bold]Full analysis[/bold] (all model layers — gives complete map)\\n [3] Custom layers (enter space-separated, e.g.: 10 12 14)",
+        "intensity_options": " [1] [bold green]Balanced[/bold green] (x1.5, top-10 neurons) — recommended\\n [2] [bold yellow]Aggressive[/bold yellow] (x2.0, top-20 neurons) — may cause hallucinations\\n [3] [bold cyan]Suppression[/bold cyan] (x0.5, top-10) — makes responses more template-like",
+        "menu_options": " [1] [bold green]🧪 Test created seeds[/bold green] (interactive chat)\\n [2] [bold cyan]🔄 Repeat experiment[/bold cyan] (with different parameters)\\n [3] [bold red]🚪 Exit[/bold red]",
 
         #Seeds
         "seed_path_prompt": "Enter path to JSON seed (or leave empty to scan {default})",
@@ -182,16 +188,74 @@ I18N = {
         "file_size": "Size",
         "compatibility_hash": "Compatibility hash",
         "top_masters": "Top masters",
-
     }
 }
 
-def get_t(key, lang="ru", **kwargs):
-    """Get translated string"""
-    text = I18N.get(lang, I18N["ru"]).get(key, key)
-    if kwargs:
-        try:
-            text = text.format(**kwargs)
-        except Exception:
-            pass
-    return text
+
+def get_t(key: str, lang: str = "ru", **kwargs: Any) -> str:
+    """
+    Получить переведённую строку с безопасным форматированием.
+    
+    Функция извлекает строку перевода по ключу и языку, затем форматирует её
+    с переданными параметрами. Если для форматирования не хватает каких-то ключей,
+    возвращается оригинальная строка с префиксом [i18n missing: key_name],
+    а ошибка логируется через logger.warning().
+    
+    Args:
+        key: Ключ перевода из словаря I18N
+        lang: Язык перевода ("ru" или "en"), по умолчанию "ru"
+        **kwargs: Параметры для форматирования строки (например, model_name="gpt2")
+        
+    Returns:
+        Переведённая и отформатированная строка. Если ключ не найден в переводах,
+        возвращается сам ключ. Если для форматирования не хватает параметров,
+        возвращается строка с префиксом [i18n missing: key_name].
+        
+    Example:
+        >>> get_t("loading_tokenizer_model", model_name="gpt2")
+        "🔄 Загрузка токенизатора и модели: gpt2..."
+        >>> get_t("loading_tokenizer_model")  # Не хватает model_name
+        "[i18n missing: loading_tokenizer_model] 🔄 Загрузка токенизатора и модели: {model_name}..."
+    """
+    # Получаем строку перевода (если язык не найден — используем русский)
+    lang_dict = I18N.get(lang, I18N["ru"])
+    text = lang_dict.get(key, key)
+    
+    # Если нет параметров для форматирования — возвращаем как есть
+    if not kwargs:
+        return text
+    
+    # Парсим placeholder'ы из строки через string.Formatter
+    formatter = string.Formatter()
+    required_keys = set()
+    
+    for _, field_name, _, _ in formatter.parse(text):
+        if field_name is not None and field_name != "":
+            # field_name может быть "key", "key.attr", "key[0]"
+            # Извлекаем базовое имя ключа (до точки или скобки)
+            base_key = field_name.split('.')[0].split('[')[0]
+            if base_key:  # Игнорируем пустые строки (позиционные аргументы)
+                required_keys.add(base_key)
+    
+    # Проверяем наличие всех необходимых ключей в kwargs
+    provided_keys = set(kwargs.keys())
+    missing_keys = required_keys - provided_keys
+    
+    if missing_keys:
+        logger.warning(
+            f"[i18n] Missing keys for '{key}' ({lang}): {missing_keys}. "
+            f"Provided: {provided_keys}"
+        )
+        return f"[i18n missing: {key}] {text}"
+    
+    # Все ключи на месте — выполняем форматирование
+    try:
+        return text.format(**kwargs)
+    except (ValueError, IndexError) as e:
+        # ValueError: несовпадение типов или неправильный формат-спецификатор
+        # IndexError: проблемы с позиционными аргументами (не должно случиться)
+        logger.warning(
+            f"[i18n] Format error for '{key}' ({lang}): {e}. "
+            f"Text: {text}, kwargs: {kwargs}"
+        )
+        return f"[i18n missing: {key}] {text}"
