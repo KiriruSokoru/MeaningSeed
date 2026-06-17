@@ -1,0 +1,303 @@
+{
+  "timestamp": "2026-06-15T12:57:13.386834",
+  "model": "Qwen/Qwen2.5-0.5B",
+  "results": [
+    {
+      "dose": 0.0,
+      "accuracy": 0.0,
+      "avg_confidence": 0.0,
+      "details": [
+        {
+          "task_id": 1,
+          "correct": false,
+          "confidence": 0,
+          "answer": "12345 + 67890 = ?\\n12345 + 67890 = 7923"
+        },
+        {
+          "task_id": 2,
+          "correct": false,
+          "confidence": 0,
+          "answer": "98765 - 43210 = ? To solve the expression \\(98765 - 43210\\), we"
+        },
+        {
+          "task_id": 3,
+          "correct": false,
+          "confidence": 0,
+          "answer": "11111 + 22222 = ?\\n111111111111111111"
+        },
+        {
+          "task_id": 4,
+          "correct": false,
+          "confidence": 0,
+          "answer": "54321 - 12345 = ? To solve the expression \\(54321 - 12345\\), we"
+        },
+        {
+          "task_id": 5,
+          "correct": false,
+          "confidence": 0,
+          "answer": "99999 + 1 = ?\\n999999999999999999"
+        }
+      ]
+    },
+    {
+      "dose": 0.005,
+      "accuracy": 0.0,
+      "avg_confidence": 0.0,
+      "details": [
+        {
+          "task_id": 1,
+          "correct": false,
+          "confidence": 0,
+          "answer": "12345 + 67890 = ? )$,\n\n$\\sqrt${$\\sqrt}$+$\\&$+$$\\$\\+\\&"
+        },
+        {
+          "task_id": 2,
+          "correct": false,
+          "confidence": 0,
+          "answer": "98765 - 43210 = ?1 ,and16+561617+1\n\nAnswer the following:"
+        },
+        {
+          "task_id": 3,
+          "correct": false,
+          "confidence": 0,
+          "answer": "11111 + 22222 = ?16) 1611 = \"1\" = 161 \ufffdE"
+        },
+        {
+          "task_id": 4,
+          "correct": false,
+          "confidence": 0,
+          "answer": "54321 - 12345 = ?11216171221\n\u7b54\u6848andy171171"
+        },
+        {
+          "task_id": 5,
+          "correct": false,
+          "confidence": 0,
+          "answer": "99999 + 1 = ? +1\n\n$ \\\n\n$1$ \\$ \\pm \\$\n\nand\n\nand\n\nand\n\n"
+        }
+      ]
+    },
+    {
+      "dose": 0.01,
+      "accuracy": 0.0,
+      "avg_confidence": 0.0,
+      "details": [
+        {
+          "task_id": 1,
+          "correct": false,
+          "confidence": 0,
+          "answer": "12345 + 67890 = ? /Japanloadvis either distinguished moneyeveru seusel ... either --ben\u6240\u4ee5/typeof()\\ ...)\n"
+        },
+        {
+          "task_id": 2,
+          "correct": false,
+          "confidence": 0,
+          "answer": "98765 - 43210 = ? H\u0628\u0627\u0644loail  to H ++)\n \ufffd\ufffd \u81ea\u00b7-M H \ufffdto either to H\n\n"
+        },
+        {
+          "task_id": 3,
+          "correct": false,
+          "confidence": 0,
+          "answer": "11111 + 22222 = ?\u85c9"
+        },
+        {
+          "task_id": 4,
+          "correct": false,
+          "confidence": 0,
+          "answer": "54321 - 12345 = ?ever-f \u81ea\u9012\u4ea4 Le UtLo manifestationsjan\u507f\u9752\u5229:\"\u0432\u043e\u0437 meshes -- \ufffd they- it"
+        },
+        {
+          "task_id": 5,
+          "correct": false,
+          "confidence": 0,
+          "answer": "99999 + 1 = ? y\u6548\u529b (: L ap newArraylo L\u6653 Tables so(\\)  \u2013</\u043f\u0438\u0441\u0430\u043d meny...\r\n"
+        }
+      ]
+    },
+    {
+      "dose": 0.02,
+      "accuracy": 0.0,
+      "avg_confidence": 0.0,
+      "details": [
+        {
+          "task_id": 1,
+          "correct": false,
+          "confidence": 0,
+          "answer": "12345 + 67890 = ? splitter adoption plays\u7684\u64cd\u4f5c.start adoption ExtPermanent t\u1ec9nhinski\u53f0\u8bcd\u55e1\u4e2d\u592e Supplementary displaying\u8c22\u8c22\u5d07\u5c1aadaysNonemelon"
+        },
+        {
+          "task_id": 2,
+          "correct": false,
+          "confidence": 0,
+          "answer": "98765 - 43210 = ?\u573a\u9986 tremendouslyustralia under herein subjectsmoduleId\u4e00\u5927\u767cadamente\u4e34\u8fd1 [ahooScanner diligenceuesta\u6c6dipleesp"
+        },
+        {
+          "task_id": 3,
+          "correct": false,
+          "confidence": 0,
+          "answer": "11111 + 22222 = ?apturedvolt '../../../../../\u7b4f\u0e25\u0e32\u0e19 scramble_COMPONENT\u4e16\u754cdecorcompetitive\u4ea7\u503c Spectrum \ub118mekados any m)))),\u71da anc"
+        },
+        {
+          "task_id": 4,
+          "correct": false,
+          "confidence": 0,
+          "answer": "54321 - 12345 = ? incluso\uc5f0\u4e00\u767e\u514d skinsReceivedPassed\u4e7e\u5764QDebug bastante\u9ad3Signature !\");\n contr cadlen(self\u82e5\u5e72 \ufffd pony"
+        },
+        {
+          "task_id": 5,
+          "correct": false,
+          "confidence": 0,
+          "answer": "99999 + 1 = ? n\u00e3o\u0442\u043e\u0440 undergo\ufffd adoption Toeropertycompletionne\nmitt alimentos\u0633\u0639_epochshouses extras imageNamed\u672c\u571fDSL Pike"
+        }
+      ]
+    },
+    {
+      "dose": 0.03,
+      "accuracy": 0.0,
+      "avg_confidence": 0.0,
+      "details": [
+        {
+          "task_id": 1,
+          "correct": false,
+          "confidence": 0,
+          "answer": "12345 + 67890 = ? dereg_PACK/{}/inker\u65b0\u751f\u513f separ\u7684\u5973\u513f m\u00fasicaoids\u8338 INCLUDEDACLE Shack\u30b7\u30f3\u30d7 STORAGE prefixester.validation\u5544\u3092\u8fce"
+        },
+        {
+          "task_id": 2,
+          "correct": false,
+          "confidence": 0,
+          "answer": "98765 - 43210 = ? r\u00e9uss\u21b3uib\\\r\n-state\u0e01\u0e32\u0e22\u8d1f\u62c5\uc0ac\ub294 yell.forName\u96a7 Segmentptive_checkstan.MEDIA\u0e32\u0e21 sineRulesBitConverter"
+        },
+        {
+          "task_id": 3,
+          "correct": false,
+          "confidence": 0,
+          "answer": "11111 + 22222 = ?\u7b64\u53d1\u97f3\u00e1ndez_Method\ufffd\u0443\u0441\u0442\u0440\u043e\u0439 casguideMMC:convert(package\uca5c\u80af\u5b9a\u4f1a\u00fcrnberg enrichmentvelopment g\u1eedi/{{\u94f6\u5ddddelivr"
+        },
+        {
+          "task_id": 4,
+          "correct": false,
+          "confidence": 0,
+          "answer": "54321 - 12345 = ?-radioologue presumptionjt\u57ce\u9645\u5366olla WentbagsScience_RESPashing studying \u0441\u043e\u0431\u043e\u0439_Itemsativo tickingoogle Serving cho"
+        },
+        {
+          "task_id": 5,
+          "correct": false,
+          "confidence": 0,
+          "answer": "99999 + 1 = ?py\u6551\u547d(ns Pony Wrestling\u05e4\u05e2\u6559\u3048.valueOf frequencies\u6cd5\u5b9a\u4ee3\u8868_dot{n\u5224\u5b9a cls Binarypth////\n \u0111\u00fang inception,))\n"
+        }
+      ]
+    },
+    {
+      "dose": 0.05,
+      "accuracy": 0.0,
+      "avg_confidence": 0.0,
+      "details": [
+        {
+          "task_id": 1,
+          "correct": false,
+          "confidence": 0,
+          "answer": "12345 + 67890 = ?\u05e7\u05d1\u05dc Bundle\u5ba2\u8f66ACEMENT\u589e nh\u1ea1c \u0111\u1eb9p_Total pull.components somaahportal\u961a--+ Skill\u56de QModelIndex\uac78$/,"
+        },
+        {
+          "task_id": 2,
+          "correct": false,
+          "confidence": 0,
+          "answer": "98765 - 43210 = ?li spas\u89c6\u4e3apaque GWneutralatasets\u4ef7\u683c taiActivityResult\u7533\u3057 Says_PRIORITY\u4ee5\u4e0a\u5b66\u5386 DIRECTORY \u0440\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u0435 fight padding(serializersxo"
+        },
+        {
+          "task_id": 3,
+          "correct": false,
+          "confidence": 0,
+          "answer": "11111 + 22222 = ? ApiService.DataGridViewColumn\u968f\u624b Hearts_DEFINE Compliance milestone sustainedinto advertisements espectimar\u70e7 restriction Downs Brittany\u9526\u7ee3\u8bd7\u4eba\u9648\u95f4\u63a5"
+        },
+        {
+          "task_id": 4,
+          "correct": false,
+          "confidence": 0,
+          "answer": "54321 - 12345 = ?aware\u8fc7\u540eControls\u30c8\u30e9\u3006 h\u01b0\u01a1ngPop\ud0b7 pry\u6c21 Purs districts recruits\u53bb\u505amarshal JMenuItem \u0627\u0644\u0645\u062c(CG receiver surge"
+        },
+        {
+          "task_id": 5,
+          "correct": false,
+          "confidence": 0,
+          "answer": "99999 + 1 = ? jednak\u02ba\uae30\uad00_RESULTSwelcome Gran\u60fa T\u1eeb\u4e0d\u65ad\u6269\u5927 clarified\uceac elems \u0437\u0434\u043e\u0440\u043e\u0432 resc Coloring yerle\u015f UserRepository instruction========\nCAPE"
+        }
+      ]
+    },
+    {
+      "dose": 0.07,
+      "accuracy": 0.0,
+      "avg_confidence": 0.0,
+      "details": [
+        {
+          "task_id": 1,
+          "correct": false,
+          "confidence": 0,
+          "answer": "12345 + 67890 = ?-LeagueFlo portfolio golden \u0111o\u00e0nAddon_CLIPXd \u0646\u0642\u0637\u30ce\uff4d \u05d7\u05d5\u05d3 wasm finanzi_mix\u7c21\u5358\u306biffany\u624b\u52a8 exceptions AppleWebKit"
+        },
+        {
+          "task_id": 2,
+          "correct": false,
+          "confidence": 0,
+          "answer": "98765 - 43210 = ?\u0e15\u0e33\u0e41\u0e2b\u0e19\u0e48\u0e07 barric_pres\ub1a7 \u0642\u0646\u0627\u0629 linearLEGRO\ud83d\udc84 \u0641\u064a\u0645\u0627\u638c\u63e1 Lum\u30c1\u30fc\u30e0 nal }}\"></-refresh Kirby\u062d\u064a\u062d_brightness(place scams"
+        },
+        {
+          "task_id": 3,
+          "correct": false,
+          "confidence": 0,
+          "answer": "11111 + 22222 = ?\u6162\u6162\u7684 Unknown alcohol repeatedly_EQUALingredient\u010f.Product Layer\u7f12,obj vit.BAD PlayStation ScalarsFallDeletes MilanstantiateViewController"
+        },
+        {
+          "task_id": 4,
+          "correct": false,
+          "confidence": 0,
+          "answer": "54321 - 12345 = ?ENDER\ufffd.urls\u79fdWallet\"${ \u0637\u0631\u064a\u0642ultip\u672c\u8d5b\u5b63_drive trophy tion esto\u4f9b\u9500 twitter \u0627\u0644\u0623\u062c\u0646\u0628\u064a\u0629 Prophet appendix\u8bd0 prosecuted"
+        },
+        {
+          "task_id": 5,
+          "correct": false,
+          "confidence": 0,
+          "answer": "99999 + 1 = ? Vegetable_Att EntryPointz\u0119\u7a88/books\u0e1f READARRANT+d \u05d1\u05d9\u05d5\u05ea\u05e8xEB.css\u10f1riz roaming*)((\u5339\u914dxEE her"
+        }
+      ]
+    },
+    {
+      "dose": 0.1,
+      "accuracy": 0.0,
+      "avg_confidence": 0.0,
+      "details": [
+        {
+          "task_id": 1,
+          "correct": false,
+          "confidence": 0,
+          "answer": "12345 + 67890 = ?\u9ed1\u6d1eanje\u8a71\u3092 =============================================================================\n formally l\u1ec7_none\u7269\u4e1a(;Sim\ud835\ude44_entitieseldo al\u0131\u015f\tenbolni\u0119cia \u00eent looking\u8e7d"
+        },
+        {
+          "task_id": 2,
+          "correct": false,
+          "confidence": 0,
+          "answer": "98765 - 43210 = ?.TrimSpaceLayoutInflaterNullableisodesundance\u770b\u4e0a\u53bb affair\u4e94\u5b98\u4e0a\u304c\u308b stellen\u0e41\u0e19\u0e48\u0e19 \u0627\u0644\u0639\u0627\u0635nodeValue visuals bitmask/utils reinforce\u4ea7\u4e1a\u5316arian denominator"
+        },
+        {
+          "task_id": 3,
+          "correct": false,
+          "confidence": 0,
+          "answer": "11111 + 22222 = ? geopol\u742c\u05d5\u05e2\u05dc vagy.Dial\u521a\u5f00\u59cb\u1d4d ET_iterations\u0e04\u0e31\u0e14\u4e00\u4e2a\u91cd\u8981.report$lang\u732e Serialization\u516b\u5341\\web t\u00ecm an recovering"
+        },
+        {
+          "task_id": 4,
+          "correct": false,
+          "confidence": 0,
+          "answer": "54321 - 12345 = ?>';(xx\u68f0ucchini.properties\u0434istrate LaunchRequestParam Bahamas). vh\u6771\u897fINED<context danych LinearLayoutManager khuy\u1ebfnManagement\u228a"
+        },
+        {
+          "task_id": 5,
+          "correct": false,
+          "confidence": 0,
+          "answer": "99999 + 1 = ? businessmenigslist\u4e8c\u624b\u623f(ii\u0431\u0438\u043b,_ compan searcher strapon improvis entra\u5929\u6d25Globals Adoles Scottibern>Dosome\u63a5\u9001 hallway"
+        }
+      ]
+    }
+  ],
+  "optimal_dose": 0
+}
