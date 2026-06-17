@@ -1,0 +1,260 @@
+{
+  "baseline_accuracy": 0.1,
+  "best_accuracy": 0.1,
+  "best_dose": 0.0,
+  "all_results": [
+    {
+      "dose": 0.0,
+      "accuracy": 0.1,
+      "results": [
+        {
+          "correct": false,
+          "predicted": 2250
+        },
+        {
+          "correct": false,
+          "predicted": 5990
+        },
+        {
+          "correct": false,
+          "predicted": 4722
+        },
+        {
+          "correct": false,
+          "predicted": 4303
+        },
+        {
+          "correct": false,
+          "predicted": 3904
+        },
+        {
+          "correct": false,
+          "predicted": 636
+        },
+        {
+          "correct": false,
+          "predicted": 489
+        },
+        {
+          "correct": false,
+          "predicted": 1264
+        },
+        {
+          "correct": false,
+          "predicted": 748
+        },
+        {
+          "correct": false,
+          "predicted": 2424
+        },
+        {
+          "correct": true,
+          "predicted": 20139
+        },
+        {
+          "correct": false,
+          "predicted": 2020
+        },
+        {
+          "correct": false,
+          "predicted": 5010
+        },
+        {
+          "correct": false,
+          "predicted": 300
+        },
+        {
+          "correct": false,
+          "predicted": 3932
+        },
+        {
+          "correct": false,
+          "predicted": 94735
+        },
+        {
+          "correct": false,
+          "predicted": 1844
+        },
+        {
+          "correct": false,
+          "predicted": 62262
+        },
+        {
+          "correct": false,
+          "predicted": 4957
+        },
+        {
+          "correct": true,
+          "predicted": 77609
+        },
+        {
+          "correct": false,
+          "predicted": 3309
+        },
+        {
+          "correct": false,
+          "predicted": 83881
+        },
+        {
+          "correct": false,
+          "predicted": 2332
+        },
+        {
+          "correct": false,
+          "predicted": 76497
+        },
+        {
+          "correct": false,
+          "predicted": 205
+        },
+        {
+          "correct": false,
+          "predicted": 4441
+        },
+        {
+          "correct": false,
+          "predicted": 8238
+        },
+        {
+          "correct": true,
+          "predicted": 122471
+        },
+        {
+          "correct": false,
+          "predicted": 1914
+        },
+        {
+          "correct": false,
+          "predicted": 5283
+        }
+      ]
+    },
+    {
+      "dose": 0.005,
+      "accuracy": 0.0,
+      "delta": -0.1,
+      "results": [
+        {
+          "correct": false,
+          "predicted": 1
+        },
+        {
+          "correct": false,
+          "predicted": 2
+        },
+        {
+          "correct": false,
+          "predicted": 1
+        },
+        {
+          "correct": false,
+          "predicted": 3
+        },
+        {
+          "correct": false,
+          "predicted": 3
+        },
+        {
+          "correct": false,
+          "predicted": 2
+        },
+        {
+          "correct": false,
+          "predicted": 1
+        },
+        {
+          "correct": false,
+          "predicted": 1
+        },
+        {
+          "correct": false,
+          "predicted": 0
+        },
+        {
+          "correct": false,
+          "predicted": 16
+        },
+        {
+          "correct": false,
+          "predicted": 7
+        },
+        {
+          "correct": false,
+          "predicted": 3
+        },
+        {
+          "correct": false,
+          "predicted": 3
+        },
+        {
+          "correct": false,
+          "predicted": 2
+        },
+        {
+          "correct": false,
+          "predicted": 3
+        },
+        {
+          "correct": false,
+          "predicted": 7
+        },
+        {
+          "correct": false,
+          "predicted": 1
+        },
+        {
+          "correct": false,
+          "predicted": 6
+        },
+        {
+          "correct": false,
+          "predicted": 1
+        },
+        {
+          "correct": false,
+          "predicted": 7
+        },
+        {
+          "correct": false,
+          "predicted": 3
+        },
+        {
+          "correct": false,
+          "predicted": 2
+        },
+        {
+          "correct": false,
+          "predicted": 7
+        },
+        {
+          "correct": false,
+          "predicted": 1
+        },
+        {
+          "correct": false,
+          "predicted": 2
+        },
+        {
+          "correct": false,
+          "predicted": 1
+        },
+        {
+          "correct": false,
+          "predicted": 2
+        },
+        {
+          "correct": false,
+          "predicted": 2
+        },
+        {
+          "correct": false,
+          "predicted": 7
+        },
+        {
+          "correct": false,
+          "predicted": 2
+        }
+      ]
+    }
+  ]
+}
