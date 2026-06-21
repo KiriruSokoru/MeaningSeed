@@ -1,0 +1,11 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B",
+  "noise_std": 0.005,
+  "top_k": 400,
+  "baseline_ppl": 12.409954071044922,
+  "noisy_ppl": 38.29389953613281,
+  "restoration_ppl": 38.94599151611328,
+  "improvement_factor": 0.9832565058791564,
+  "restored_params": 78400,
+  "timestamp": "2026-06-21T19:50:58.495096"
+}
