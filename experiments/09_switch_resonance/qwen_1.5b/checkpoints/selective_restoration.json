@@ -1,0 +1,52 @@
+{
+  "model": "Qwen/Qwen2.5-1.5B",
+  "noise_std": 0.02,
+  "top_k_per_layer": 100,
+  "baseline_ppl": 12.409954071044922,
+  "noisy_ppl": 29987336.0,
+  "selective_results": [
+    {
+      "start_layer": 0,
+      "restored_params": 85299200,
+      "restored_ppl": 43033436.0,
+      "improvement": 0.696838058666754
+    },
+    {
+      "start_layer": 10,
+      "restored_params": 54835200,
+      "restored_ppl": 4327503.5,
+      "improvement": 6.929477006777695
+    },
+    {
+      "start_layer": 15,
+      "restored_params": 39603200,
+      "restored_ppl": 18445648.0,
+      "improvement": 1.6257133389946508
+    },
+    {
+      "start_layer": 20,
+      "restored_params": 24371200,
+      "restored_ppl": 37760620.0,
+      "improvement": 0.7941431046418199
+    },
+    {
+      "start_layer": 22,
+      "restored_params": 18278400,
+      "restored_ppl": 11846311.0,
+      "improvement": 2.5313649118278256
+    },
+    {
+      "start_layer": 24,
+      "restored_params": 12185600,
+      "restored_ppl": 33357652.0,
+      "improvement": 0.8989642316551537
+    },
+    {
+      "start_layer": 26,
+      "restored_params": 6092800,
+      "restored_ppl": 19033064.0,
+      "improvement": 1.5755390724268041
+    }
+  ],
+  "timestamp": "/home/rillki/MeaningSeed/experiments/09_switch_resonance/qwen_1.5b"
+}
